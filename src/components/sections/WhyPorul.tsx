@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ShieldCheck, Zap, Heart, Globe, Sparkles } from "lucide-react";
+import { useRef } from "react";
 
 const axioms = [
   {
@@ -43,11 +44,30 @@ const axioms = [
 ];
 
 export default function WhyPorul() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const yLabel = useTransform(scrollYProgress, [0, 1], [-150, 150]);
+
   return (
-    <section className="py-20 px-8 bg-[#FAF5FF]/30 relative overflow-hidden group/why-section border-y border-black/5">
-      {/* Space Optimization: Differentiated Violet Backdrop */}
+    <section ref={containerRef} className="py-24 px-8 bg-[#FAF5FF]/30 relative overflow-hidden group/why-section border-t border-black/[0.08]">
+      {/* Structural Differentiation: Section Identity Badge */}
+      <div className="absolute top-0 right-[25%] py-2.5 px-8 rounded-b-[24px] bg-black text-white text-[9px] font-black uppercase tracking-[0.6em] z-20 shadow-2xl">
+         Sector 03: Protocol Axioms
+      </div>
+
       <div className="absolute inset-x-0 inset-y-0 opacity-[0.03] select-none pointer-events-none -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(126,58,242,0.1),transparent_50%)]" />
-      <div className="absolute top-20 left-10 text-[10vw] font-black text-black/[0.012] uppercase tracking-tighter select-none pointer-events-none group-hover/why-section:text-accent-violet/[0.03] transition-colors duration-1000">AXIOMS</div>
+      
+      {/* Parallax Label */}
+      <motion.div 
+         style={{ y: yLabel }}
+         className="absolute top-20 left-10 text-[15vw] font-black text-black/[0.012] uppercase tracking-tighter select-none pointer-events-none group-hover/why-section:text-accent-violet/[0.03] transition-colors duration-1000"
+      >
+         AXIOMS
+      </motion.div>
       
       <div className="max-w-[1400px] mx-auto relative z-10">
         <div className="text-center mb-12 space-y-6">

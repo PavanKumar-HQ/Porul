@@ -9,9 +9,17 @@ import { useCart } from "@/context/CartContext";
 import { useRef } from "react";
 
 export default function ProductShowcase() {
+  const containerRef = useRef(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const { isInWishlist, addToWishlist, removeFromWishlist } = useWishlist();
   const { addToCart } = useCart();
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const yLabel = useTransform(scrollYProgress, [0, 1], [-100, 100]);
 
   const scrollLeft = () => {
     if (scrollRef.current) {
@@ -26,14 +34,21 @@ export default function ProductShowcase() {
   };
 
   return (
-    <section className="py-24 overflow-hidden bg-[#F0F7FF]/50 text-black relative group/showcase-section border-t border-black/[0.08]">
+    <section ref={containerRef} className="py-24 overflow-hidden bg-[#F0F7FF]/50 text-black relative group/showcase-section border-t border-black/[0.08]">
       {/* Structural Differentiation: Section Identity Badge */}
       <div className="absolute top-0 right-[15%] py-2.5 px-8 rounded-b-[24px] bg-black text-white text-[9px] font-black uppercase tracking-[0.6em] z-20 shadow-2xl">
          Sector 02: Exhibition Hall
       </div>
 
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#0070f308_1px,transparent_1px),linear-gradient(to_bottom,#0070f308_1px,transparent_1px)] bg-[size:32px_32px]" />
-      <div className="absolute top-20 left-1/2 -translate-x-1/2 text-[12vw] font-black text-black/[0.015] uppercase tracking-tighter select-none pointer-events-none group-hover/showcase-section:text-accent-blue/[0.03] transition-colors duration-1000">COLLECT</div>
+      
+      {/* Parallax Label */}
+      <motion.div 
+         style={{ y: yLabel }}
+         className="absolute top-20 left-1/2 -translate-x-1/2 text-[15vw] font-black text-black/[0.015] uppercase tracking-tighter select-none pointer-events-none group-hover/showcase-section:text-accent-blue/[0.03] transition-colors duration-1000"
+      >
+         COLLECT
+      </motion.div>
 
       <div className="px-8 max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-end mb-16 gap-12 relative z-10">
         <div className="max-w-2xl">
