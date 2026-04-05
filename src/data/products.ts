@@ -30,7 +30,7 @@ export const products: Product[] = [
     price: 34.00,
     category: "Signature Series",
     description: "A minimalist ceramic mug with a deep matte obsidian finish. Perfect for your daily rituals and crafted to maintain precise thermal energy.",
-    image: "/mug-placeholder.png",
+    image: "/mug.png",
     color: "from-zinc-900 to-zinc-800",
     materials: ["Ceramic", "Matte Obsidian Coating", "Heat-Resistant Glass"],
     specs: [
@@ -50,7 +50,7 @@ export const products: Product[] = [
     price: 45.00,
     category: "Apparel",
     description: "Premium heavy-weight cotton tee with a luxurious hand-feel. Engineered for a tailored fit that evolves with your signature style.",
-    image: "/tee-placeholder.png",
+    image: "/tee.png",
     color: "from-blue-900 to-indigo-900",
     materials: ["100% Pima Cotton", "Double-Stitched Seams"],
     specs: [
@@ -65,7 +65,7 @@ export const products: Product[] = [
     price: 120.00,
     category: "Accessories",
     description: "Clean aesthetic meets precision engineering. A timeless piece that bridges the gap between digital and physical elegance.",
-    image: "/watch-placeholder.png",
+    image: "/watch.png",
     color: "from-purple-900 to-fuchsia-900",
     materials: ["316L Stainless Steel", "Sapphire Crystal", "Italian Vachetta Leather"],
     specs: [
@@ -80,7 +80,7 @@ export const products: Product[] = [
     price: 28.00,
     category: "Stationery",
     description: "Elegant layout for your complex day. Crafted with fountain-pen friendly paper and a soft-touch architectural cover.",
-    image: "/planner-placeholder.png",
+    image: "/planner.png",
     color: "from-emerald-900 to-teal-900",
     materials: ["120gsm Acid-Free Paper", "Soft-Touch Polyurethane"],
     specs: [

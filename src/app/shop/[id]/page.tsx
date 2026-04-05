@@ -15,12 +15,11 @@ export default function ProductDetailPage() {
   const router = useRouter();
   const { addToCart } = useCart();
   const product = products.find((p) => p.id === params.id);
-  const [selectedTexture, setSelectedTexture] = useState(product?.availableTextures?.[0]?.id || "default");
   
   if (!product) return (
     <div className="min-h-screen flex items-center justify-center font-outfit">
       <div className="text-center space-y-4">
-        <h1 className="text-4xl font-bold">Artifact Not Found</h1>
+        <h1 className="text-4xl font-bold font-outfit">Artifact Not Found</h1>
         <Link href="/shop" className="text-accent-violet hover:underline flex items-center gap-2 justify-center">
           <ArrowLeft size={16} /> Return to Shop
         </Link>
@@ -49,15 +48,20 @@ export default function ProductDetailPage() {
             className="space-y-8"
           >
             <div className="aspect-[4/5] rounded-[64px] glass-lvl-1 border-black/5 relative overflow-hidden group">
-               <div className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-20 blur-[100px]`} />
-               <div className="absolute inset-0 flex items-center justify-center p-20">
-                  <div className="w-full h-full glass-lvl-2 rounded-[48px] border-white/20 shadow-2xl flex items-center justify-center text-black/5 font-outfit font-black text-9xl uppercase tracking-tighter select-none rotate-12">
-                    {product.name.charAt(0)}
-                  </div>
+               <img 
+                 src={product.image} 
+                 alt={product.name}
+                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+               />
+               <div className="absolute inset-0 bg-black/5 mix-blend-multiply pointer-events-none" />
+               <div className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-20 blur-[100px] pointer-events-none`} />
+               
+               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <span className="text-white/5 font-outfit font-black text-9xl md:text-[240px] uppercase tracking-tighter select-none rotate-12">{product.name.charAt(0)}</span>
                </div>
                
                {/* Floating Tag */}
-               <div className="absolute top-10 left-10 glass-lvl-3 px-6 py-2 rounded-full border-white/20 shadow-xl">
+               <div className="absolute top-10 left-10 glass-lvl-3 px-6 py-2 rounded-full border-white/20 shadow-xl z-20">
                   <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent-violet flex items-center gap-2">
                     <Star size={12} className="fill-accent-violet" />
                     Signature Edition
@@ -67,8 +71,8 @@ export default function ProductDetailPage() {
 
             <div className="grid grid-cols-4 gap-4">
               {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="aspect-square rounded-3xl glass-lvl-1 border-black/5 hover:glass-lvl-3 transition-all cursor-pointer overflow-hidden border-2 border-transparent hover:border-accent-violet/20">
-                   <div className="w-full h-full bg-black/[0.02]" />
+                <div key={i} className="aspect-square rounded-3xl glass-lvl-1 border-black/5 hover:glass-lvl-3 transition-all cursor-pointer overflow-hidden border-2 border-transparent hover:border-accent-violet/20 relative group">
+                   <img src={product.image} alt="" className="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity" />
                 </div>
               ))}
             </div>
@@ -82,14 +86,14 @@ export default function ProductDetailPage() {
           >
             <div className="space-y-4">
                <div className="flex items-center gap-3">
-                  <span className="px-3 py-1 rounded-full glass-lvl-1 border-black/5 text-[9px] font-bold uppercase tracking-[0.3em] text-black/40">Artifact</span>
-                  <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-accent-gold">Serial #PRL-97X</span>
+                  <span className="px-3 py-1 rounded-full glass-lvl-1 border-black/5 text-[9px] font-bold uppercase tracking-[0.3em] text-black/40 font-inter">Artifact</span>
+                  <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-accent-gold font-inter">Serial #PRL-97X</span>
                </div>
                <h1 className="text-6xl md:text-8xl font-bold font-outfit tracking-tighter leading-none">{product.name}</h1>
                <p className="text-4xl font-bold font-outfit text-black/20">${product.price.toFixed(2)}</p>
             </div>
 
-            <p className="text-xl font-light text-black/60 leading-relaxed max-w-xl">
+            <p className="text-xl font-light text-black/60 leading-relaxed max-w-xl font-inter">
                {product.description}
             </p>
 
@@ -97,11 +101,11 @@ export default function ProductDetailPage() {
 
             {/* Customization Preview Teaser */}
             <div className="space-y-6">
-               <h3 className="text-[10px] font-bold uppercase tracking-[0.5em] text-black/20">Artisan Metadata</h3>
+               <h3 className="text-[10px] font-bold uppercase tracking-[0.5em] text-black/20 font-inter">Artisan Metadata</h3>
                <div className="grid grid-cols-2 gap-8">
                   {product.specs?.map((spec) => (
                     <div key={spec.label} className="space-y-1">
-                       <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-black/40">{spec.label}</p>
+                       <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-black/40 font-inter">{spec.label}</p>
                        <p className="text-lg font-bold font-outfit">{spec.value}</p>
                     </div>
                   ))}
@@ -112,7 +116,7 @@ export default function ProductDetailPage() {
                <div className="flex gap-4">
                   <button 
                     onClick={() => addToCart(product, "", "Inter", "#000000")}
-                    className="flex-1 py-6 rounded-[32px] bg-black text-white font-bold text-lg flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-95 transition-all shadow-2xl group"
+                    className="flex-1 py-6 rounded-[32px] bg-black text-white font-bold text-lg font-outfit flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-95 transition-all shadow-2xl group"
                   >
                     Initiate Acquisition
                     <ShoppingBag size={22} className="group-hover:translate-y-[-2px] transition-transform" />
@@ -145,7 +149,7 @@ export default function ProductDetailPage() {
                 ].map((badge) => (
                   <div key={badge.label} className="flex flex-col items-center gap-3 text-center">
                     <badge.icon size={18} className="text-accent-blue" />
-                    <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-black/40">{badge.label}</span>
+                    <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-black/40 font-inter">{badge.label}</span>
                   </div>
                 ))}
             </div>

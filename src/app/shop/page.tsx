@@ -93,28 +93,43 @@ export default function ShopPage() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.5 }}
               >
-                <Link href={`/shop/${product.id}`} className="group block">
-                  <div className="relative aspect-[1/1.2] glass-lvl-1 rounded-[56px] overflow-hidden border-black/5 group-hover:glass-lvl-2 transition-all duration-700 hover:shadow-2xl">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-0 group-hover:opacity-40 transition-opacity duration-1000 blur-[80px] -z-10`} />
-                    
-                    <div className="absolute inset-x-8 top-8 bottom-32 glass-lvl-1 border-white/20 rounded-[40px] flex items-center justify-center transition-all duration-700 group-hover:scale-[1.03] group-hover:shadow-2xl bg-white/5 overflow-hidden">
-                       <span className="text-black/5 font-black uppercase tracking-tighter text-[100px] rotate-12 select-none">{product.name.charAt(0)}</span>
-                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                          <div className="w-16 h-16 rounded-full glass-lvl-3 flex items-center justify-center text-accent-violet">
+                <Link href={`/shop/${product.id}`} className="group block h-full">
+                  <div className="relative aspect-[1/1.2] glass-lvl-1 rounded-[56px] overflow-hidden border-black/5 group-hover:glass-lvl-2 transition-all duration-700 hover:shadow-2xl flex flex-col h-full">
+                    {/* Image Area */}
+                    <div className="relative flex-1 p-6">
+                      <div className="absolute inset-0 overflow-hidden rounded-[40px] m-4">
+                         <img 
+                           src={product.image} 
+                           alt={product.name}
+                           className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                         />
+                         <div className="absolute inset-0 bg-black/5 mix-blend-multiply" />
+                         <div className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-20`} />
+                         
+                         {/* Floating Letter Overlay */}
+                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                             <span className="text-white/10 font-black text-[120px] uppercase tracking-tighter select-none rotate-12">{product.name.charAt(0)}</span>
+                         </div>
+                      </div>
+
+                      {/* Interaction Overlay */}
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-20">
+                          <div className="w-16 h-16 rounded-full glass-lvl-3 flex items-center justify-center text-accent-violet shadow-2xl">
                              <Wand2 size={24} />
                           </div>
                        </div>
                     </div>
 
-                    <div className="absolute inset-x-0 bottom-0 p-10 pt-0 flex flex-col gap-2">
+                    {/* Metadata Area */}
+                    <div className="p-10 pt-2 flex flex-col gap-3 min-h-[140px]">
                       <div className="flex justify-between items-center">
                         <span className="text-[10px] font-bold text-black/20 uppercase tracking-[0.4em]">{product.category}</span>
-                        <span className="text-xl font-bold font-outfit text-black/40">${product.price.toFixed(0)}</span>
+                        <span className="text-xl font-bold font-outfit text-black/60">${product.price.toFixed(0)}</span>
                       </div>
-                      <h3 className="text-2xl font-bold text-black font-outfit tracking-tight leading-none">{product.name}</h3>
-                      <div className="pt-2 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0 duration-500">
+                      <h3 className="text-2xl font-bold text-black font-outfit tracking-tight leading-none group-hover:text-accent-violet transition-colors">{product.name}</h3>
+                      <div className="pt-4 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0 duration-500 mt-auto">
                          <span className="text-[9px] font-black uppercase tracking-widest text-accent-blue">Manifest Creation</span>
-                         <ArrowRight size={14} className="text-black/40" />
+                         <ArrowRight size={14} className="text-accent-blue" />
                       </div>
                     </div>
                   </div>
