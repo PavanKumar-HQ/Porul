@@ -72,9 +72,9 @@ export default function Testimonials() {
               </div>
               
               <div className="relative z-10">
-                 <p className="text-black/40 text-xl leading-relaxed mb-16 font-light italic font-inter decoration-accent-violet/10 underline-offset-8">
-                   "{testimonial.text}"
-                 </p>
+                  <p className="text-black/70 text-xl leading-relaxed mb-16 font-light italic font-inter decoration-accent-violet/10 underline-offset-8">
+                    "{testimonial.text}"
+                  </p>
               </div>
 
               <div className="flex items-center gap-6">

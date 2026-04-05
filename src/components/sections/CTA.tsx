@@ -44,7 +44,7 @@ export default function CTA() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-black/40 text-2xl max-w-2xl mx-auto mb-20 font-extralight leading-relaxed font-outfit italic"
+          className="text-black/60 text-2xl max-w-2xl mx-auto mb-20 font-extralight leading-relaxed font-outfit italic"
         >
           Join 50k+ collectors who have translated their emotion into physical heirs. The Porul Atelier is now open for your manifest.
         </motion.p>
