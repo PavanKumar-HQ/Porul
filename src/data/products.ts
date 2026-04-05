@@ -88,5 +88,65 @@ export const products: Product[] = [
       { label: "Size", value: "A5 Heritage" },
       { label: "Binding", value: "Smyth Sewn" }
     ]
+  },
+  {
+    id: "atelier-glass-vessel",
+    name: "Atelier Glass Vessel",
+    price: 85.00,
+    category: "Special Artifact",
+    description: "A hand-blown glass sculpture designed for the modern sanctuary. Features a unique refractive signature that evolves with sunlight.",
+    image: "https://images.unsplash.com/photo-1581783898377-1c85bf937427?auto=format&fit=crop&q=80&w=800",
+    color: "from-cyan-100 to-blue-200",
+    materials: ["Borosilicate Glass", "Refractive Particles"],
+    specs: [
+        { label: "Height", value: "300mm" },
+        { label: "Refraction", value: "Elite Grade" },
+        { label: "Origin", value: "Venice, IT" }
+    ]
+  },
+  {
+    id: "heritage-leather-portfolio",
+    name: "Leather Portfolio",
+    price: 180.00,
+    category: "Signature Series",
+    description: "Full-grain vegetable-tanned leather portfolio meant to age with your career. A physical repository for your intellectual heirs.",
+    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=800",
+    color: "from-orange-900 to-amber-950",
+    materials: ["Vachetta Leather", "Brass Fixtures"],
+    specs: [
+        { label: "Weight", value: "1.2kg" },
+        { label: "Tanning", value: "Artisan Wood-Bark" },
+        { label: "Warranty", value: "Lifetime Tenure" }
+    ]
+  },
+  {
+    id: "manifest-tech-sleeve",
+    name: "Elite Tech Sleeve",
+    price: 65.00,
+    category: "Artifacts",
+    description: "Protective technical envelope with magnetic closure systems. Minimalist protection for your primary digital manifest.",
+    image: "https://images.unsplash.com/photo-1611186871348-b1aa696e5239?auto=format&fit=crop&q=80&w=800",
+    color: "from-zinc-100 to-zinc-400",
+    materials: ["Technical Felt", "Rare Earth Magnets"],
+    specs: [
+        { label: "Closure", value: "Solenoid Feedback" },
+        { label: "Padding", value: "EVA High-Density" },
+        { label: "Size", value: "14\"/16\" Universal" }
+    ]
+  },
+  {
+    id: "heritage-ink-pen",
+    name: "Identity Ink Pen",
+    price: 150.00,
+    category: "Special Artifact",
+    description: "Precision-balanced fountain pen with a titanium nib. Designed to manifest your handwriting into a permanent digital-standard ink signature.",
+    image: "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&q=80&w=800",
+    color: "from-zinc-800 to-black",
+    materials: ["Titanium Nib", "Carbon Fiber Body"],
+    specs: [
+        { label: "Balance", value: "Perfect Center" },
+        { label: "Nib", value: "F-Fine Precision" },
+        { label: "Filling", value: "Vacuum Piston" }
+    ]
   }
 ];
