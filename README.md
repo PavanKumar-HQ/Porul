@@ -1,38 +1,39 @@
-# Porul — The Digital Heritage Atelier
+# Porul — Modern E-Commerce Platform
 
-
-### Manifesting Physical Signature into Digital Reality.
-Porul is a high-fidelity, agency-grade e-commerce platform designed to showcase and customize "digital heirlooms." Built with the **Alabaster V2** design system, it emphasizes purity, texture, and cinematic interaction.
+### Premium Print-on-Demand Experience.
+Porul is a high-fidelity, mobile-first e-commerce platform optimized for custom print-on-demand products. It features a stunning modern design with vibrant aesthetics, smooth animations, and a seamless user flow.
 
 ---
 
-## ✨ Key Experience Pillars
+## ✨ Key Features
 
-### 1. The Digital Atelier (`/customize`)
-A high-end interaction space where users can select base vessels, apply artisanal textures, and preview their unique "signature" sigil in real-time. 
-- **Signature Protocol**: Real-time typography and pigment simulation.
-- **Vessel Selection**: Curated base artifacts from the Signature Series.
+### 1. Product Customization (`/customize`)
+An interactive design studio where customers can customize their favorite products in real-time.
+- **Live Preview**: Real-time typography and color simulation on product mockups.
+- **Simple UI**: Intuitive steps to choose products, add text, and review designs.
 
-### 2. Alabaster Aesthetics
-A bespoke visual language utilizing advanced glassmorphism and subtle sunlight tints.
-- **Glass-Lvl Architecture**: Three tiers of translucency based on interaction depth.
-- **Nocturnal Support**: Seamless transition to "Nocturnal Mode" via the global theme toggle.
+### 2. Premium Aesthetics
+A bespoke visual language utilizing advanced glassmorphism, smooth gradients, and cinematic interactions.
+- **Mobile-First Design**: Optimized for a flawless experience across all devices.
+- **Dynamic Interactions**: Powered by **Framer Motion** for a "living" interface.
 
-### 3. Kinetic Interaction Physics
-Powered by **Framer Motion**, the entire platform feels alive and responsive.
-- **Magnetic Cursors**: Contextual attraction to key CTA elements.
-- **Cinematic Overlays**: Full-screen glassmorphic search and cart navigation.
-- **Fluid Transitions**: Smooth, non-linear page fades and focal blurs.
+### 3. Comprehensive E-Commerce Flow
+- **Rupee (₹) Integration**: Fully localized for the Indian market.
+- **Auth0 Authentication**: Secure login and signup integrated into the checkout flow.
+- **Admin Dashboard**: Specialized panel for managing Orders, Products, and Discounts.
+- **Coupon System**: Dynamic discount application in the checkout summary.
 
 ---
 
 ## 🛠️ Technical Stack
 
-- **Core**: [Next.js 16 (App Router)](https://nextjs.org) - Optimized performance and SEO.
-- **Styling**: [Tailwind CSS 4](https://tailwindcss.com) - Modern utility-first CSS with `@theme` support.
-- **Animation**: [Framer Motion](https://framer.com/motion) - High-fidelity interaction physics.
-- **Icons**: [Lucide React](https://lucide.dev) - Minimalist, consistent iconography.
-- **State**: Context API with LocalStorage persistence for Cart and Wishlist.
+- **Framework**: [Next.js](https://nextjs.org) (App Router)
+- **Styling**: [Vanilla CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) & [Tailwind CSS](https://tailwindcss.com)
+- **Database**: [Supabase](https://supabase.com) (SQL Schema included)
+- **Auth**: [Auth0](https://auth0.com)
+- **Media**: [Cloudinary](https://cloudinary.com) (Storage for product images)
+- **Animation**: [Framer Motion](https://framer.com/motion)
+- **Icons**: [Lucide React](https://lucide.dev)
 
 ---
 
@@ -40,13 +41,13 @@ Powered by **Framer Motion**, the entire platform feels alive and responsive.
 
 ### Prerequisites
 - Node.js 18.0 or later
-- npm or yarn
+- npm/yarn/pnpm
 
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/porul-project.git
-   cd porul-project
+   git clone https://github.com/pavankumarofficial1231/Porul.git
+   cd Porul
    ```
 
 2. Install dependencies:
@@ -54,12 +55,15 @@ Powered by **Framer Motion**, the entire platform feels alive and responsive.
    npm install
    ```
 
-3. Initialize development environment:
+3. Setup Environment Variables:
+   Create a `.env` file based on `.env.example` with your credentials for Supabase, Auth0, and Cloudinary.
+
+4. Run the development server:
    ```bash
    npm run dev
    ```
 
-4. Access the Atelier:
+5. View the App:
    Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
@@ -68,37 +72,26 @@ Powered by **Framer Motion**, the entire platform feels alive and responsive.
 
 ```bash
 src/
-├── app/             # Next.js App Router (Routes: Shop, Customize, Dashboard, etc.)
+├── app/             # Next.js Routes (Shop, Customize, Admin, Checkout, etc.)
 ├── components/      
-│   ├── layout/      # Global components (Navbar, Footer, SearchOverlay)
-│   ├── sections/    # Modular section components (Hero, WhyPorul, Categories)
-│   └── ui/          # Atomic components (ThemeToggle, Marquee, NavDropdown)
-├── context/         # Global State management (Cart, Wishlist, Theme)
-├── data/            # Static metadata (Artifact Registry, Product Specs)
+│   ├── layout/      # Global components (Navbar, Footer)
+│   ├── sections/    # Modular UI sections (Hero, Customer Reviews)
+│   └── ui/          # Atomic components (ThemeToggle, Marquee)
+├── context/         # Global State (Cart, Theme)
+├── data/            # Static Product Metadata
 └── provider/        # Framer Motion & Layout Providers
 ```
 
 ---
 
-## 📜 Customization Protocol
-The project utilizes a custom metadata system defined in `src/data/products.ts`. You can expand the artifact library by adding new records following the `Product` interface:
-
-```typescript
-{
-  id: "artifact-id",
-  name: "Artifact Name",
-  price: 0.00,
-  category: "Collection Name",
-  description: "Artisanal backstory...",
-  specs: [{ label: "Spec", value: "Value" }]
-}
-```
+## 📜 Database Setup
+The repository includes a `supabase_schema.sql` file in the root. Run this in your Supabase SQL Editor to initialize the necessary tables for products, orders, and discounts.
 
 ---
 
 ## 🏛️ License
-Crafted with passion by the Porul Design Team. Internal use only.
+Developed by the Porul Team. All rights reserved.
 
 ---
-> [!IMPORTANT]
-> **Performance Note**: The platform uses high-fidelity blurs and animations. For the best experience, view on high-density displays (Retina/4K).
+> [!TIP]
+> Use the **Heritage20** coupon code in checkout to test the discount logic!
