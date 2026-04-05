@@ -1,91 +1,91 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import Navbar from "@/components/layout/Navbar";
-import { CheckCircle2, Eye, Paintbrush2, ShoppingBag, Clock, ShieldCheck } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowUpRight, Users, Box, Banknote, Sparkles } from "lucide-react";
+import Link from "next/link";
 
-const mockOrders = [
-  { id: "ORD-9921", customer: "Alex Rivera", design: "Purity", product: "Ceramic Mug", color: "#121212", font: "font-serif", status: "In Crafting" },
-  { id: "ORD-9922", customer: "Sarah Chen", design: "The Ghost", product: "Signature Tee", color: "#7E3AF2", font: "font-mono", status: "Received" },
+const stats = [
+  { label: "Total Revenue", value: "₹124,500", trend: "+12.5%", icon: Banknote },
+  { label: "Active Crafts", value: "34", trend: "+4.2%", icon: Sparkles },
+  { label: "New Customers", value: "892", trend: "+22.1%", icon: Users },
+  { label: "Inventory Elements", value: "1,204", trend: "-1.4%", icon: Box },
 ];
 
-export default function AdminDashboard() {
+export default function AdminDashboardOverview() {
   return (
-    <div className="min-h-screen bg-[#FDFDFD] text-black">
-      <Navbar />
-      <main className="pt-32 pb-24 px-8 max-w-7xl mx-auto w-full">
-        <header className="mb-20 flex justify-between items-end border-b border-black/5 pb-12">
-           <div>
-              <h1 className="text-5xl font-bold font-outfit uppercase tracking-tighter text-black">Craft Registry</h1>
-              <p className="text-black/40 text-lg mt-2 font-light">Oversee the creation of digital heirlooms.</p>
-           </div>
-           <div className="flex gap-4">
-              <div className="glass-lvl-1 border-accent-violet/20 px-6 py-3 rounded-2xl flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-accent-violet shadow-sm">
-                 <Clock size={16} />
-                 8 Pending Crafts
-              </div>
-           </div>
-        </header>
+    <div className="max-w-6xl mx-auto space-y-12">
+      <header className="flex justify-between items-end border-b border-foreground/5 pb-8">
+         <div>
+            <h1 className="text-4xl font-bold font-outfit uppercase tracking-tighter text-foreground">Store Overview</h1>
+            <p className="text-foreground/40 text-sm mt-2 font-light">Global overview of digital heritage operations.</p>
+         </div>
+         <div className="flex gap-4">
+            <Link href="/admin/products/new" className="h-12 px-8 bg-foreground text-background flex items-center justify-center rounded-[20px] font-bold text-[10px] uppercase tracking-widest gap-2 hover:scale-[1.02] transition-transform shadow-xl">
+               Add Element
+               <ArrowUpRight size={14} />
+            </Link>
+         </div>
+      </header>
 
-        <div className="glass-lvl-1 rounded-[48px] border-black/5 overflow-hidden shadow-2xl">
-           <table className="w-full text-left border-collapse">
-              <thead>
-                 <tr className="border-b border-black/5 text-[10px] font-bold uppercase tracking-[0.3em] text-black/20 bg-black/[0.01]">
-                    <th className="px-10 py-8">Order ID</th>
-                    <th className="px-10 py-8">Product</th>
-                    <th className="px-10 py-8 text-center">Design Intent</th>
-                    <th className="px-10 py-8 text-center">Status</th>
-                    <th className="px-10 py-8 text-right">Actions</th>
-                 </tr>
-              </thead>
-              <tbody>
-                 {mockOrders.map((order) => (
-                    <tr key={order.id} className="border-b border-black/5 group hover:bg-black/[0.01] transition-all duration-500">
-                       <td className="px-10 py-10">
-                          <span className="font-mono text-sm font-bold text-black/60 tracking-wider transition-colors group-hover:text-black">{order.id}</span>
-                       </td>
-                       <td className="px-10 py-10">
-                          <div className="flex flex-col gap-1">
-                             <span className="font-bold text-lg text-black">{order.product}</span>
-                             <span className="text-[10px] uppercase text-black/30 tracking-[0.2em] font-bold">{order.customer}</span>
-                          </div>
-                       </td>
-                       <td className="px-10 py-10">
-                          <div className="glass-lvl-1 bg-white border-black/[0.03] rounded-3xl p-6 flex items-center justify-center min-w-[160px] aspect-video shadow-sm transition-all group-hover:shadow-xl group-hover:-translate-y-1">
-                             <span className={`text-2xl font-bold tracking-tighter drop-shadow-sm transition-all duration-700 ${order.font}`} style={{ color: order.color }}>
-                                {order.design}
-                             </span>
-                          </div>
-                       </td>
-                       <td className="px-10 py-10 text-center">
-                          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-lvl-1 border-black/5 text-[9px] font-bold uppercase tracking-[0.3em] text-accent-violet bg-accent-violet/[0.03]">
-                             <div className="w-1.5 h-1.5 rounded-full bg-accent-violet animate-pulse" />
-                             {order.status}
-                          </div>
-                       </td>
-                       <td className="px-10 py-10 text-right">
-                          <div className="flex justify-end gap-4 opacity-0 group-hover:opacity-100 transition-all duration-500 scale-95 group-hover:scale-100">
-                             <button className="p-4 rounded-2xl glass-lvl-1 border-black/5 text-black/20 hover:text-black hover:glass-lvl-2 transition-all shadow-sm">
-                                <Eye size={18} />
-                             </button>
-                             <button className="p-4 rounded-2xl glass-lvl-1 border-black/5 text-black/20 hover:text-accent-gold hover:glass-lvl-2 transition-all shadow-sm">
-                                <Paintbrush2 size={18} />
-                             </button>
-                          </div>
-                       </td>
-                    </tr>
-                 ))}
-              </tbody>
-           </table>
-           <div className="p-10 bg-black/[0.01] border-t border-black/5 flex justify-between items-center">
-              <div className="flex items-center gap-3 text-black/20 text-[9px] font-bold uppercase tracking-widest">
-                 <ShieldCheck size={16} />
-                 Secured Registrar Access
+      {/* Metric Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+         {stats.map((stat, i) => (
+           <motion.div 
+             key={stat.label}
+             initial={{ opacity: 0, y: 20 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ delay: i * 0.1 }}
+             className="glass-lvl-1 border border-foreground/5 p-8 rounded-[32px] group hover:border-accent-violet/30 transition-colors"
+           >
+              <div className="flex justify-between items-start mb-6">
+                 <div className="w-12 h-12 rounded-full glass-lvl-3 flex items-center justify-center text-foreground/40 group-hover:text-accent-violet transition-colors">
+                    <stat.icon size={20} />
+                 </div>
+                 <span className={`text-[10px] font-bold font-mono px-3 py-1 rounded-full ${stat.trend.startsWith('+') ? 'bg-green-500/10 text-green-500' : 'bg-red-500/10 text-red-500'}`}>
+                    {stat.trend}
+                 </span>
               </div>
-              <button className="text-[10px] font-bold text-accent-violet uppercase tracking-[0.3em] hover:underline">View History Archive</button>
-           </div>
-        </div>
-      </main>
+              <h3 className="text-[10px] font-bold uppercase tracking-widest text-foreground/40 mb-1">{stat.label}</h3>
+              <p className="text-3xl font-bold font-outfit text-foreground tracking-tighter">{stat.value}</p>
+           </motion.div>
+         ))}
+      </div>
+
+      {/* Quick Action & Recent Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+         <div className="lg:col-span-2 glass-lvl-1 border border-foreground/5 rounded-[40px] p-10 min-h-[400px]">
+             <div className="flex justify-between items-center mb-8">
+                 <h2 className="text-xl font-bold font-outfit tracking-tight text-foreground">Recent Products</h2>
+                 <Link href="/admin/orders" className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent-violet hover:underline">View All</Link>
+             </div>
+             <div className="flex items-center justify-center h-48 border border-dashed border-foreground/10 rounded-3xl group cursor-pointer hover:border-accent-violet/30 transition-all">
+                 <p className="text-xs font-bold text-foreground/40 tracking-widest uppercase group-hover:text-accent-violet transition-colors">Loading data...</p>
+             </div>
+         </div>
+         <div className="glass-lvl-1 border border-foreground/5 rounded-[40px] p-10 bg-gradient-to-br from-background to-accent-violet/5">
+             <h2 className="text-xl font-bold font-outfit tracking-tight text-foreground mb-4">System Status</h2>
+             <div className="space-y-6 mt-8">
+                 <div className="flex items-center justify-between">
+                     <span className="text-[10px] uppercase font-bold tracking-widest text-foreground/50">User Auth</span>
+                     <div className="flex items-center gap-2 text-[10px] uppercase font-bold text-green-500">
+                         <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" /> Active
+                     </div>
+                 </div>
+                 <div className="flex items-center justify-between">
+                     <span className="text-[10px] uppercase font-bold tracking-widest text-foreground/50">Database</span>
+                     <div className="flex items-center gap-2 text-[10px] uppercase font-bold text-green-500">
+                         <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" /> Attached
+                     </div>
+                 </div>
+                 <div className="flex items-center justify-between">
+                     <span className="text-[10px] uppercase font-bold tracking-widest text-foreground/50">Cloud Storage</span>
+                     <div className="flex items-center gap-2 text-[10px] uppercase font-bold text-accent-gold">
+                         <div className="w-1.5 h-1.5 bg-accent-gold rounded-full" /> Pending Config
+                     </div>
+                 </div>
+             </div>
+         </div>
+      </div>
     </div>
   );
 }

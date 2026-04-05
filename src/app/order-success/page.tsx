@@ -2,14 +2,13 @@
 
 import { motion } from "framer-motion";
 import { CheckCircle, ArrowRight, Package, Truck, ShoppingBag } from "lucide-react";
-import Navbar from "@/components/layout/Navbar";
+
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
 
 export default function OrderSuccessPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
       <main className="flex-1 pt-40 pb-24 px-8">
         <div className="max-w-4xl mx-auto text-center space-y-12">
           <motion.div 

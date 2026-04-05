@@ -2,14 +2,12 @@
 
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
-import Navbar from "@/components/layout/Navbar";
+
 import Footer from "@/components/layout/Footer";
 
 export default function ContactPage() {
   return (
     <div className="flex flex-col min-h-screen bg-white text-[#333333]">
-      <Navbar />
-      
       <main className="flex-1">
         {/* Header Section */}
         <div className="bg-[#FAF8F5] pt-48 pb-24 px-8 text-center">

@@ -35,7 +35,7 @@ export default function CartDrawer() {
                     <ShoppingBag size={24} />
                  </div>
                  <div className="flex flex-col">
-                    <h2 className="text-2xl font-bold font-outfit uppercase tracking-tighter text-black">Atelier Bag</h2>
+                    <h2 className="text-2xl font-bold font-outfit uppercase tracking-tighter text-black">Store Bag</h2>
                     <span className="text-[11px] font-black text-black/60 uppercase tracking-[0.2em]">
                        {cart.length} Artifacts in registry
                     </span>
@@ -72,9 +72,9 @@ export default function CartDrawer() {
                    <div className="absolute inset-0 bg-accent-violet/10 pointer-events-none" />
                    <div className="relative z-10 space-y-6">
                       <div className="flex justify-between items-end">
-                         <span className="text-[11px] font-black uppercase tracking-[0.4em]">Transit Protocol</span>
+                         <span className="text-[11px] font-black uppercase tracking-[0.4em]">Shipping Method</span>
                          <span className="text-[11px] font-bold text-white/80">
-                            {total >= 500 ? 'Unlocked: Complimentary Global Delivery' : `Manifest $${(500 - total).toFixed(0)} more for Registry Delivery`}
+                            {total >= 500 ? 'Unlocked: Complimentary Global Delivery' : `Manifest ₹${(500 - total).toFixed(0)} more for Registry Delivery`}
                          </span>
                       </div>
                       <div className="h-2 w-full bg-white/10 rounded-full overflow-hidden">
@@ -160,7 +160,7 @@ export default function CartDrawer() {
 
                    <div className="space-y-6">
                       <div className="flex justify-between items-end">
-                         <span className="text-black/80 font-black uppercase tracking-widest text-[11px]">Total Investment</span>
+                         <span className="text-black/80 font-black uppercase tracking-widest text-[11px]">Total sum</span>
                          <span className="text-5xl font-bold font-outfit text-black tracking-tighter">${total.toFixed(0)}</span>
                       </div>
                       

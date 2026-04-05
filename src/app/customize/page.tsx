@@ -3,7 +3,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef } from "react";
 import { products } from "@/data/products";
-import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Sparkles, Wand2, ArrowRight, Type, Check, ChevronRight, Save, ShoppingBag, Fingerprint } from "lucide-react";
 import { useCart } from "@/context/CartContext";
@@ -38,9 +37,8 @@ export default function CustomizePage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#FDFDFD] text-black transition-colors duration-700">
-      <Navbar />
       
-      <main className="flex-1 pt-40 px-8 max-w-7xl mx-auto w-full mb-24">
+      <main className="flex-1 px-8 max-w-7xl mx-auto w-full mb-24">
         {/* Progress Bar */}
         <div className="flex items-center justify-center gap-4 mb-20">
           {[1, 2, 3].map((s) => (
@@ -120,8 +118,8 @@ export default function CustomizePage() {
                     className="space-y-8"
                   >
                      <div className="space-y-4">
-                        <h2 className="text-4xl font-bold font-outfit tracking-tighter">Choose Your <span className="text-black/20 italic">Vessel</span></h2>
-                        <p className="text-black/40">Select the artisanal base artifact for your manifestation.</p>
+                        <h2 className="text-4xl font-bold font-outfit tracking-tighter">Choose Your <span className="text-black/20 italic">Product</span></h2>
+                        <p className="text-black/40">Select the base item for your custom design.</p>
                      </div>
                      <div className="grid grid-cols-2 gap-4">
                         {products.map((p) => (
@@ -135,13 +133,13 @@ export default function CustomizePage() {
                               <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${p.color} opacity-40 group-hover:scale-110 transition-transform`} />
                               <div>
                                  <p className="font-bold font-outfit tracking-tight">{p.name}</p>
-                                 <p className="text-[9px] font-bold uppercase tracking-widest text-black/20">${p.price}</p>
+                                 <p className="text-[9px] font-bold uppercase tracking-widest text-black/20">₹{p.price}</p>
                               </div>
                            </button>
                         ))}
                      </div>
                      <button onClick={() => setStep(2)} className="w-full py-6 rounded-[32px] bg-black text-white font-bold flex items-center justify-center gap-4 hover:scale-[1.02] shadow-2xl transition-all">
-                        Define Signature <ArrowRight size={20} />
+                        Customize Design <ArrowRight size={20} />
                      </button>
                   </motion.div>
                 )}
@@ -155,19 +153,19 @@ export default function CustomizePage() {
                     className="space-y-12"
                   >
                      <div className="space-y-8">
-                        <h2 className="text-4xl font-bold font-outfit tracking-tighter">Inscribe Your <span className="text-black/20 italic">Sigil</span></h2>
+                        <h2 className="text-4xl font-bold font-outfit tracking-tighter">Create Your <span className="text-black/20 italic">Design</span></h2>
                         <div className="space-y-4">
-                           <label className="text-[10px] font-bold uppercase tracking-[0.5em] text-black/20">Custom Text Signal</label>
+                           <label className="text-[10px] font-bold uppercase tracking-[0.5em] text-black/20">Custom Text</label>
                            <input 
                              type="text" 
                              maxLength={12}
                              value={customText}
                              onChange={(e) => setCustomText(e.target.value)}
-                             placeholder="MANIFEST HERE"
+                             placeholder="YOUR TEXT HERE"
                              className="w-full bg-black/[0.02] border-b-2 border-black/5 py-4 text-4xl font-bold tracking-tighter outline-none focus:border-accent-violet transition-colors placeholder:text-black/5 h-24"
                            />
                            <p className="text-[9px] font-bold text-black/20 flex justify-between uppercase">
-                              <span>Max Protocol Length: 12 Characters</span>
+                              <span>Max Length: 12 Characters</span>
                               <span>{customText.length}/12</span>
                            </p>
                         </div>
@@ -209,7 +207,7 @@ export default function CustomizePage() {
 
                      <div className="flex gap-4 pt-12">
                         <button onClick={() => setStep(1)} className="px-10 py-6 rounded-[32px] glass-lvl-1 border-black/5 font-bold hover:glass-lvl-3 transition-all text-black/40">Previous</button>
-                        <button onClick={() => setStep(3)} className="flex-1 py-6 rounded-[32px] bg-black text-white font-bold flex items-center justify-center gap-4 hover:scale-[1.02] shadow-2xl transition-all">Review Protocol <ChevronRight size={20} /></button>
+                        <button onClick={() => setStep(3)} className="flex-1 py-6 rounded-[32px] bg-black text-white font-bold flex items-center justify-center gap-4 hover:scale-[1.02] shadow-2xl transition-all">Review Order <ChevronRight size={20} /></button>
                      </div>
                   </motion.div>
                 )}
@@ -223,25 +221,25 @@ export default function CustomizePage() {
                     className="space-y-12"
                   >
                      <div className="space-y-8">
-                        <h2 className="text-4xl font-bold font-outfit tracking-tighter">Final <span className="text-black/20 italic">Validation</span></h2>
-                        <p className="text-black/40">Review your signature artifact before fabrication initiation.</p>
+                        <h2 className="text-4xl font-bold font-outfit tracking-tighter">Final <span className="text-black/20 italic">Review</span></h2>
+                        <p className="text-black/40">Review your custom product before adding to cart.</p>
                      </div>
 
                      <div className="glass-lvl-1 rounded-[40px] border-black/5 p-10 space-y-6">
                         <div className="flex justify-between items-center text-[10px] font-bold text-black/20 uppercase tracking-[0.3em]">
-                           <span>Base Artifact</span>
-                           <span>001-XF</span>
+                           <span>Product Base</span>
+                           <span>SKU-098X</span>
                         </div>
                         <div className="flex justify-between items-end">
                            <div>
                               <p className="text-3xl font-bold font-outfit leading-none">{selectedProduct.name}</p>
                               <p className="text-sm font-light text-black/60 pt-2">{selectedProduct.category}</p>
                            </div>
-                           <p className="text-4xl font-bold font-outfit">${selectedProduct.price}</p>
+                           <p className="text-4xl font-bold font-outfit">₹{selectedProduct.price}</p>
                         </div>
                         <div className="h-px bg-black/5 pt-4" />
                         <div className="space-y-4">
-                           <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-accent-violet">Embedded Sigil</p>
+                           <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-accent-violet">Custom Design</p>
                            <div className="flex justify-between items-center bg-black/5 p-6 rounded-2xl">
                               <p className={`${selectedFont.className} text-3xl`} style={{ color: selectedColor.hex }}>{customText || "NONE"}</p>
                               <div className="text-right">
@@ -258,7 +256,7 @@ export default function CustomizePage() {
                           onClick={handleFinalize} 
                           className="flex-1 py-6 rounded-[32px] bg-black text-white font-bold flex items-center justify-center gap-4 hover:scale-[1.02] shadow-2xl transition-all group"
                         >
-                           Initiate Fabrication
+                           Add to Cart
                            <ShoppingBag size={20} className="group-hover:translate-y-[-2px] transition-transform" />
                         </button>
                      </div>

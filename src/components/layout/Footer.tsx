@@ -31,7 +31,7 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-2 space-y-10">
             <h2 className="text-5xl font-bold font-outfit tracking-tighter uppercase">PORUL</h2>
             <p className="text-black/70 max-w-sm text-xl leading-relaxed font-medium font-inter">
-               Handcrafted digital heirlooms architected for the modern collector and specialized curator.
+               Handcrafted custom orders architected for the modern collector and specialized curator.
             </p>
             <div className="flex gap-8">
               {[
@@ -47,7 +47,7 @@ export default function Footer() {
           </div>
 
           <div className="space-y-8">
-            <h3 className="text-[11px] font-black uppercase tracking-[0.4em] text-black/40">The Atelier</h3>
+            <h3 className="text-[11px] font-black uppercase tracking-[0.4em] text-black/40">The Store</h3>
             <ul className="space-y-5 text-sm font-black text-black/80 uppercase tracking-widest">
               {["Signature Collection", "Limited Series", "Bespoke Request", "Gift Curation"].map((item) => (
                 <li key={item}>
@@ -73,7 +73,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-16 border-t border-black/10 flex flex-col md:flex-row justify-between items-center gap-10 text-[11px] font-black uppercase tracking-[0.5em] text-black/60">
-          <p>© {currentYear} PORUL DIGITAL HEIRLOOMS. ALL RIGHTS RESERVED.</p>
+          <p>© {currentYear} PORUL custom orders. ALL RIGHTS RESERVED.</p>
           <div className="flex gap-10">
             <Link href="#" className="hover:text-black transition-colors">Privacy Policy</Link>
             <Link href="#" className="hover:text-black transition-colors">Terms of Service</Link>

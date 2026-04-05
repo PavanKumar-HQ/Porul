@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useParams, useRouter } from "next/navigation";
 import { products } from "@/data/products";
-import Navbar from "@/components/layout/Navbar";
+
 import Footer from "@/components/layout/Footer";
 import { Heart, ShoppingBag, ArrowLeft, ShieldCheck, Truck, RotateCcw, Star, ChevronRight, Plus, Minus, Check, Wand2 } from "lucide-react";
 import Link from "next/link";
@@ -25,7 +25,7 @@ export default function ProductDetailPage() {
       <div className="text-center space-y-4">
         <h1 className="text-4xl font-bold font-outfit text-black">Artifact Not Found</h1>
         <Link href="/shop" className="text-accent-violet hover:underline flex items-center gap-2 justify-center font-bold uppercase tracking-widest text-[10px]">
-          <ArrowLeft size={16} /> Return to Gallery
+          <ArrowLeft size={16} /> Return to Shop
         </Link>
       </div>
     </div>
@@ -41,8 +41,6 @@ export default function ProductDetailPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#FDFDFD] text-black transition-colors duration-700">
-      <Navbar />
-      
       <main className="flex-1 pt-48 pb-24 px-8 max-w-7xl mx-auto w-full">
         {/* Breadcrumbs */}
         <nav className="mb-12 flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.3em] text-black/20">
@@ -176,7 +174,7 @@ export default function ProductDetailPage() {
                         <Wand2 size={24} />
                      </div>
                      <div className="text-left">
-                        <p className="text-xl font-bold font-outfit tracking-tight text-black">Enter Digital Atelier</p>
+                        <p className="text-xl font-bold font-outfit tracking-tight text-black">Enter Digital Store</p>
                         <p className="text-[10px] font-bold text-black/40 uppercase tracking-[0.2em]">Signature Manifest Protocol</p>
                      </div>
                   </div>
@@ -221,7 +219,7 @@ export default function ProductDetailPage() {
                      )}
                      {activeTab === "shipping" && (
                         <div className="space-y-4">
-                           <p className="text-sm font-light text-black/60 leading-relaxed font-inter">Global tracked delivery with our Signature White-Glove protocol. Insured door-to-door transit for all manifestation artifacts.</p>
+                           <p className="text-sm font-light text-black/60 leading-relaxed font-inter">Global tracked delivery with our Signature White-Glove protocol. Insured door-to-door transit for all Product artifacts.</p>
                            <div className="flex items-center gap-4 text-accent-blue">
                               <Truck size={18} />
                               <span className="text-[10px] font-bold uppercase tracking-widest">3-5 Business Days Delivery</span>
@@ -230,7 +228,7 @@ export default function ProductDetailPage() {
                      )}
                      {activeTab === "returns" && (
                         <div className="space-y-4">
-                           <p className="text-sm font-light text-black/60 leading-relaxed font-inter">All Signature artifacts are eligible for our 30-day Heritage Return policy. Manifestation must be in original condition with all digital tags intact.</p>
+                           <p className="text-sm font-light text-black/60 leading-relaxed font-inter">All Signature artifacts are eligible for our 30-day Heritage Return policy. Product must be in original condition with all digital tags intact.</p>
                            <div className="flex items-center gap-4 text-accent-gold">
                               <RotateCcw size={18} />
                               <span className="text-[10px] font-bold uppercase tracking-widest">Complimentary Return Shield</span>

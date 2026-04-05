@@ -75,7 +75,7 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
                       <input 
                          type="text" 
                          autoFocus
-                         placeholder="Search the Atelier..."
+                         placeholder="Search the Store..."
                          value={query}
                          onChange={(e) => setQuery(e.target.value)}
                          className="w-full bg-transparent border-b border-black/10 focus:border-accent-violet outline-none py-10 pl-24 text-4xl md:text-5xl lg:text-6xl font-bold font-outfit tracking-tighter text-black placeholder:text-black/10 transition-all duration-700"
@@ -112,7 +112,7 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
                 </div>
 
                 <div className="pt-8 flex justify-between items-center opacity-20 hover:opacity-50 transition-opacity group/meta">
-                   <span className="text-[10px] font-black uppercase tracking-[0.8em]">Atelier Protocol v2.2</span>
+                   <span className="text-[10px] font-black uppercase tracking-[0.8em]">Store Protocol v2.2</span>
                    <div className="flex gap-4">
                       {[1,2,3].map(i => <div key={i} className="w-1.5 h-1.5 rounded-full bg-black/40 group-hover/meta:bg-accent-violet transition-colors" />)}
                    </div>

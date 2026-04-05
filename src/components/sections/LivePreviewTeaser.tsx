@@ -149,7 +149,7 @@ export default function LivePreviewTeaser() {
                        />
                     </div>
                     <div className="flex justify-between items-end">
-                       <span className="text-3xl font-bold font-outfit text-black">$54.00</span>
+                       <span className="text-3xl font-bold font-outfit text-black">₹54.00</span>
                        <button className="px-6 py-2.5 bg-black text-white rounded-2xl text-[9px] font-bold uppercase tracking-[0.2em] shadow-xl hover:scale-105 transition-all">Acquire</button>
                     </div>
                  </div>

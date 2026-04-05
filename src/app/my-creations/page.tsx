@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import Navbar from "@/components/layout/Navbar";
+
 import Footer from "@/components/layout/Footer";
 import { Sparkles, Wand2, ArrowRight, Share2, Trash2, Heart, History, ShieldCheck } from "lucide-react";
 import Link from "next/link";
@@ -38,8 +38,6 @@ export default function MyCreationsPage() {
 
   return (
     <div className="min-h-screen bg-[#FDFDFD] flex flex-col text-black">
-      <Navbar />
-      
       <main className="flex-1 pt-32 pb-24 px-8 max-w-7xl mx-auto w-full">
         {/* Header Section */}
         <header className="mb-24 text-center space-y-8">

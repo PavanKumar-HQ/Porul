@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Box, ShoppingBag, Wand2, Star } from "lucide-react";
-import Navbar from "@/components/layout/Navbar";
+
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
 
@@ -40,7 +40,6 @@ const categoryCards = [
 export default function CategoriesPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
       <main className="flex-1 pt-40 pb-24 px-8">
         <div className="max-w-7xl mx-auto space-y-24">
           <div className="text-center space-y-12">

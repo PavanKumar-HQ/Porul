@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { products } from "@/data/products";
-import Navbar from "@/components/layout/Navbar";
+
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
 import { Search, SlidersHorizontal, ArrowRight, Sparkles, Filter, ChevronDown, Wand2, Heart, ShoppingBag, Eye, Star } from "lucide-react";
@@ -42,8 +42,6 @@ export default function ShopPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#FDFDFD] text-black transition-colors duration-700">
-      <Navbar />
-      
       <main className="flex-1 pt-40 pb-24 px-8 max-w-7xl mx-auto w-full">
         <header className="mb-24 space-y-12">
           <div className="flex flex-col md:flex-row justify-between items-end gap-8">

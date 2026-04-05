@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { Heart, ShoppingBag, ArrowRight, Trash2, Wand2, Star, CheckCircle2 } from "lucide-react";
-import Navbar from "@/components/layout/Navbar";
+
 import Footer from "@/components/layout/Footer";
 import { useWishlist } from "@/context/WishlistContext";
 import { useCart } from "@/context/CartContext";
@@ -23,7 +23,6 @@ export default function WishlistPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#FDFDFD] text-black">
-      <Navbar />
       <main className="flex-1 pt-48 pb-24 px-8 max-w-7xl mx-auto w-full">
         <div className="space-y-24">
           <header className="flex flex-col md:flex-row justify-between items-end gap-12">
@@ -52,7 +51,7 @@ export default function WishlistPage() {
                 transition={{ delay: 0.2 }}
                 className="text-xl font-light text-black/40 leading-relaxed max-w-xl font-inter"
               >
-                Curate your personal collection of digital heirlooms. These objects await your signature and manifestation.
+                Curate your personal collection of custom orders. These objects await your signature and Product.
               </motion.p>
             </div>
 
@@ -167,7 +166,7 @@ export default function WishlistPage() {
                  </div>
                  <div className="space-y-4 text-center">
                     <h2 className="text-4xl font-bold font-outfit tracking-tighter text-black">Your Wishlist is Empty</h2>
-                    <p className="text-[10px] font-bold text-black/20 uppercase tracking-[0.4em] font-inter">Identify Artifacts to begin manifestation protocol.</p>
+                    <p className="text-[10px] font-bold text-black/20 uppercase tracking-[0.4em] font-inter">Identify Artifacts to begin Product protocol.</p>
                  </div>
                  <Link href="/shop" className="px-12 py-5 rounded-[32px] bg-black text-white font-bold text-lg font-outfit flex items-center justify-center gap-4 hover:scale-105 transition-all duration-500 shadow-2xl group">
                     Enter Artifact Gallery

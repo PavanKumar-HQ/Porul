@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, ArrowRight, Filter, ChevronDown, ShoppingBag, Heart, Eye, Star, Search } from "lucide-react";
-import Navbar from "@/components/layout/Navbar";
+
 import Footer from "@/components/layout/Footer";
 import { useParams } from "next/navigation";
 import { products } from "@/data/products";
@@ -38,7 +38,6 @@ export default function CategoryPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#FDFDFD]">
-      <Navbar />
       <main className="flex-1 pt-40 pb-24 px-8">
         <div className="max-w-[1400px] mx-auto space-y-20">
           {/* Header Architecture - Top Aligned */}

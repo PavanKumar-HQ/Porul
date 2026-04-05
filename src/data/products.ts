@@ -119,7 +119,7 @@ export const products: Product[] = [
   },
   {
     id: "desk-mat",
-    name: "Atelier Desk Mat",
+    name: "Store Desk Mat",
     price: 55.00,
     category: "Studio Essentials",
     description: "Double-layered wool felt surface for precise pointer control and acoustic insulation.",

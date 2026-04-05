@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { User, Package, Heart, Settings, Wand2, LogOut, ArrowRight, Clock, MapPin, CreditCard } from "lucide-react";
-import Navbar from "@/components/layout/Navbar";
+
 import Footer from "@/components/layout/Footer";
 import { useWishlist } from "@/context/WishlistContext";
 import Link from "next/link";
@@ -19,7 +19,6 @@ export default function DashboardPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#FDFDFD] text-black transition-colors duration-700">
-      <Navbar />
       <main className="flex-1 pt-40 pb-24 px-8 max-w-7xl mx-auto w-full">
         <div className="space-y-20">
           {/* Header */}

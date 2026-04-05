@@ -2,13 +2,12 @@
 
 import { motion } from "framer-motion";
 import { Sparkles, Wand2, ArrowRight } from "lucide-react";
-import Navbar from "@/components/layout/Navbar";
+
 import Footer from "@/components/layout/Footer";
 
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
       <main className="flex-1 pt-40 pb-24 px-8">
         <div className="max-w-7xl mx-auto space-y-24">
           <div className="text-center space-y-12">
@@ -36,7 +35,7 @@ export default function AboutPage() {
               transition={{ delay: 0.2 }}
               className="text-2xl font-light text-black/40 max-w-3xl mx-auto leading-relaxed"
             >
-              Porul is more than an atelier; it’s a dialogue between artisanal heritage and digital provenance. We believe your history deserves to be carried in objects of timeless beauty.
+              Porul is more than an Store; it’s a dialogue between artisanal heritage and digital provenance. We believe your history deserves to be carried in objects of timeless beauty.
             </motion.p>
           </div>
 

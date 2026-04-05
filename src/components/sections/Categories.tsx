@@ -10,7 +10,7 @@ const categories = [
     name: "Signature Apparel", 
     href: "/category/apparel", 
     image: "/tee.png", 
-    description: "Architectural manifestation of luxury cotton and precision detailing.",
+    description: "Architectural Product of luxury cotton and precision detailing.",
     icon: <PenTool size={22} />,
     color: "bg-[#FDF8F2]", 
     tag: "Textile Protocol",
@@ -83,7 +83,7 @@ export default function Categories() {
          style={{ y: yLabel }}
          className="absolute top-20 right-10 text-[18vw] font-black text-black/[0.03] uppercase tracking-tighter select-none pointer-events-none group-hover/cat-section:text-accent-violet/[0.05] transition-colors duration-1000"
       >
-         ATELIER
+         Store
       </motion.div>
 
       <div className="max-w-[1400px] mx-auto relative z-10">
@@ -110,7 +110,7 @@ export default function Categories() {
                 whileInView={{ opacity: 1, y: 0 }}
                 className="text-xl font-medium text-black/70 leading-relaxed max-w-sm font-inter text-left md:text-right"
              >
-                Architecture of artifacts categorized by specialized protocol of physical manifestation and heritage.
+                Architecture of artifacts categorized by specialized protocol of physical Product and heritage.
              </motion.p>
              <div className="flex gap-4">
                 <button 

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence, useSpring, useMotionValue, useMotionTemplate } from "framer-motion";
 import { ArrowDown, Sparkles, ChevronRight, Wand2, ShieldCheck, Crown, Terminal, Box } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
@@ -10,7 +10,7 @@ const messages = [
   "Crafted for Your Signature",
   "Manifest Your Identity",
   "Designed by Your Emotion",
-  "The Atelier of One"
+  "The Store of One"
 ];
 
 const TypewriterText = ({ text }: { text: string }) => {
@@ -40,12 +40,19 @@ export default function Hero() {
     offset: ["start start", "end start"]
   });
 
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  // Optimized Mouse Tracking (No React Re-renders on Move)
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const smoothX = useSpring(mouseX, { damping: 50, stiffness: 400 });
+  const smoothY = useSpring(mouseY, { damping: 50, stiffness: 400 });
+  const background = useMotionTemplate`radial-gradient(800px circle at ${smoothX}px ${smoothY}px, rgba(126, 58, 242, 0.15), transparent 80%)`;
+
   const [currentMessage, setCurrentMessage] = useState(0);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
     };
     window.addEventListener("mousemove", handleMouseMove);
     
@@ -57,7 +64,7 @@ export default function Hero() {
       window.removeEventListener("mousemove", handleMouseMove);
       clearInterval(interval);
     };
-  }, []);
+  }, [mouseX, mouseY]);
 
   const yText = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const yArtifactR = useTransform(scrollYProgress, [0, 1], [0, -100]);
@@ -82,9 +89,7 @@ export default function Hero() {
 
       <motion.div 
         className="pointer-events-none fixed inset-0 z-0 opacity-40"
-        animate={{
-          background: `radial-gradient(800px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(126, 58, 242, 0.2), transparent 80%)`
-        }}
+        style={{ background }}
       />
 
       <div className="relative z-20 w-full max-w-[1400px] px-8 flex flex-col lg:flex-row items-center justify-between gap-16 text-center lg:text-left">
@@ -94,11 +99,11 @@ export default function Hero() {
               animate={{ opacity: 1, x: 0 }}
               className="inline-flex items-center gap-4 px-6 py-2 rounded-full border border-black/30 text-[11px] font-black tracking-[0.5em] text-black uppercase mb-8 shadow-sm bg-white"
            >
-              Identity Protocol
+              User Auth
            </motion.div>
 
            <div className="space-y-10">
-             <h1 className="text-[64px] md:text-[96px] lg:text-[110px] font-bold font-outfit leading-none tracking-tighter text-black select-none uppercase">
+             <h1 className="text-[64px] md:text-[96px] lg:text-[110px] font-bold font-outfit leading-none tracking-tighter text-black uppercase">
                 Digital <span className="text-black/50 italic"><TypewriterText text="Heirloom" /></span>
              </h1>
              

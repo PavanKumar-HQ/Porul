@@ -8,7 +8,7 @@ const axioms = [
   {
     id: "AX-01",
     title: "Signature Fidelity",
-    description: "Every pixel of your manifestation is translated with artisan-grade precision into physical reality.",
+    description: "Every pixel of your Product is translated with artisan-grade precision into physical reality.",
     icon: <ShieldCheck size={24} />,
     color: "bg-white", 
     accent: "text-black",
@@ -16,7 +16,7 @@ const axioms = [
   },
   {
     id: "AX-02",
-    title: "Atelier Velocity",
+    title: "Store Velocity",
     description: "Immediate rendering meet heritage craftsmanship. We manifest your vision in record-breaking cycles.",
     icon: <Zap size={24} />,
     color: "bg-white",

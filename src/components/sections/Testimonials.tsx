@@ -29,7 +29,7 @@ const testimonials = [
     rating: 5
   },
   {
-    quote: "A spatial atelier that understands the depth of digital value. This is the future of luxury acquisition.",
+    quote: "A spatial Store that understands the depth of digital value. This is the future of luxury acquisition.",
     author: "Julian Reed",
     role: "Spatial Designer",
     rating: 5
@@ -43,7 +43,7 @@ export default function Testimonials() {
     <section className="py-24 px-8 bg-[#FAF9F6] relative overflow-hidden group/test-section border-y border-black/[0.12]">
       {/* Top Sector Badge */}
       <div className="absolute top-0 left-[20%] py-2.5 px-8 rounded-b-[24px] bg-black text-white text-[10px] font-black uppercase tracking-[0.6em] z-20 shadow-2xl">
-         Sector 04: Registry Voices
+         Customer Reviews
       </div>
 
       <div className="absolute inset-x-0 inset-y-0 opacity-[0.04] select-none pointer-events-none -z-10 bg-[radial-gradient(circle_at_50%_50%,rgba(0,112,243,0.1),transparent_70%)]" />
@@ -56,7 +56,7 @@ export default function Testimonials() {
                whileInView={{ opacity: 1, scale: 1 }}
                className="inline-flex items-center gap-4 px-6 py-2 rounded-full border border-black/20 text-[11px] font-black tracking-[0.4em] text-accent-violet uppercase bg-white shadow-sm"
             >
-               Registry Feedback
+               Real Customer Stories
             </motion.div>
             
             <motion.h2 
@@ -64,7 +64,7 @@ export default function Testimonials() {
                whileInView={{ opacity: 1, y: 0 }}
                className="text-6xl md:text-8xl font-bold font-outfit tracking-tighter text-black leading-none uppercase"
             >
-              The Collective Voice
+              What Customers Say
             </motion.h2>
         </div>
       </div>
