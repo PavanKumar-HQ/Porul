@@ -1,6 +1,5 @@
 # Porul — The Digital Heritage Atelier
 
-![Porul Banner](https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop)
 
 ### Manifesting Physical Signature into Digital Reality.
 Porul is a high-fidelity, agency-grade e-commerce platform designed to showcase and customize "digital heirlooms." Built with the **Alabaster V2** design system, it emphasizes purity, texture, and cinematic interaction.
