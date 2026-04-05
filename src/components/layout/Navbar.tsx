@@ -90,7 +90,7 @@ export default function Navbar() {
               <Link 
                 key={link.name}
                 href={link.href}
-                className="relative text-[10px] font-bold text-black/40 uppercase tracking-[0.3em] transition-colors hover:text-black px-6 py-4"
+                className="relative text-xs font-bold text-black/60 uppercase tracking-[0.4em] transition-colors hover:text-black px-6 py-4"
                 onMouseEnter={() => setHoveredLink(link.name)}
                 onMouseLeave={() => setHoveredLink(null)}
               >

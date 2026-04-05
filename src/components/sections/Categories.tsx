@@ -127,7 +127,7 @@ export default function Categories() {
                    transition={{ delay: index * 0.1 + 0.5 }}
                    className="mt-16 flex items-center justify-between"
                 >
-                   <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-black/10 group-hover:text-accent-violet transition-colors">Begin Manifestation</span>
+                   <span className="text-xs font-bold uppercase tracking-[0.4em] text-black/20 group-hover:text-accent-violet transition-colors">Begin Manifestation</span>
                    <div className="w-12 h-12 rounded-full border border-black/5 glass-lvl-1 flex items-center justify-center group-hover:bg-black group-hover:text-white group-hover:scale-110 transition-all duration-500 shadow-sm">
                       <ArrowUpRight size={20} />
                    </div>

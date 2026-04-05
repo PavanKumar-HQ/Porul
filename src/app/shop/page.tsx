@@ -98,7 +98,7 @@ export default function ShopPage() {
                     <div className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-0 group-hover:opacity-40 transition-opacity duration-1000 blur-[80px] -z-10`} />
                     
                     <div className="absolute inset-x-8 top-8 bottom-32 glass-lvl-1 border-white/20 rounded-[40px] flex items-center justify-center transition-all duration-700 group-hover:scale-[1.03] group-hover:shadow-2xl bg-white/5 overflow-hidden">
-                       <span className="text-black/5 font-bold uppercase tracking-[1em] text-[40px] rotate-45 select-none">{product.name.charAt(0)}</span>
+                       <span className="text-black/5 font-black uppercase tracking-tighter text-[100px] rotate-12 select-none">{product.name.charAt(0)}</span>
                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                           <div className="w-16 h-16 rounded-full glass-lvl-3 flex items-center justify-center text-accent-violet">
                              <Wand2 size={24} />

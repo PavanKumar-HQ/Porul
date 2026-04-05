@@ -64,7 +64,7 @@ export default function WishlistPage() {
                         <div className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-0 group-hover:opacity-40 transition-opacity duration-1000 blur-[80px] -z-10`} />
                         
                         <div className="absolute inset-x-8 top-8 bottom-32 glass-lvl-1 border-white/20 rounded-[32px] flex items-center justify-center transition-all duration-700 group-hover:scale-[1.03] bg-white/5">
-                           <span className="text-black/5 font-black text-6xl uppercase tracking-tighter select-none rotate-12">{product.name.charAt(0)}</span>
+                           <span className="text-black/5 font-black text-[120px] uppercase tracking-tighter select-none rotate-12">{product.name.charAt(0)}</span>
                         </div>
 
                         <div className="absolute inset-x-0 bottom-0 p-10 pt-0">
