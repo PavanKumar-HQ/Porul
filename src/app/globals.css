@@ -8,42 +8,19 @@
   --accent-gold: #D4AF37; /* Exclusivity Gold */
   
   --glass-lvl1-bg: rgba(255, 255, 255, 0.7);
-  --glass-lvl1-border: rgba(0, 0, 0, 0.08); /* Increased for visibility */
+  --glass-lvl1-border: rgba(0, 0, 0, 0.08);
   --glass-lvl1-blur: blur(12px);
 
   --glass-lvl2-bg: rgba(255, 255, 255, 0.82);
-  --glass-lvl2-border: rgba(0, 0, 0, 0.12); /* Increased for visibility */
+  --glass-lvl2-border: rgba(0, 0, 0, 0.12);
   --glass-lvl2-blur: blur(24px);
 
   --glass-lvl3-bg: rgba(255, 255, 255, 0.95);
-  --glass-lvl3-border: rgba(0, 0, 0, 0.15); /* Increased for visibility */
+  --glass-lvl3-border: rgba(0, 0, 0, 0.15);
   --glass-lvl3-blur: blur(48px);
 
   --shadow-ambient: 0 4px 20px -5px rgba(0, 0, 0, 0.05); /* Soft base shadow */
   color-scheme: light;
-}
-
-:root.dark {
-  --background: #0A0A0A; /* Nocturnal Black */
-  --foreground: #FDFDFD; /* Pure Alabaster */
-  --accent-blue: #0A84FF; /* Vibrant Blue */
-  --accent-violet: #BF5AF2; /* Vibrant Violet */
-  --accent-gold: #FFD60A; /* Vibrant Gold */
-
-  --glass-lvl1-bg: rgba(0, 0, 0, 0.4);
-  --glass-lvl1-border: rgba(255, 255, 255, 0.1);
-  --glass-lvl1-blur: blur(12px);
-
-  --glass-lvl2-bg: rgba(0, 0, 0, 0.6);
-  --glass-lvl2-border: rgba(255, 255, 255, 0.15);
-  --glass-lvl2-blur: blur(24px);
-
-  --glass-lvl3-bg: rgba(0, 0, 0, 0.8);
-  --glass-lvl3-border: rgba(255, 255, 255, 0.2);
-  --glass-lvl3-blur: blur(48px);
-
-  --shadow-ambient: 0 4px 30px -10px rgba(0, 0, 0, 0.5);
-  color-scheme: dark;
 }
 
 @theme inline {
@@ -66,8 +43,6 @@ body {
   color: var(--foreground);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
-              color 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Glassmorphism Levels - Porul V2 'Alabaster' Edition */

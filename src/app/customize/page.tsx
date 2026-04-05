@@ -37,7 +37,7 @@ export default function CustomizePage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#FDFDFD] dark:bg-[#0A0A0A] text-black dark:text-white transition-colors duration-700">
+    <div className="flex flex-col min-h-screen bg-[#FDFDFD] text-black transition-colors duration-700">
       <Navbar />
       
       <main className="flex-1 pt-40 px-8 max-w-7xl mx-auto w-full mb-24">
@@ -47,12 +47,12 @@ export default function CustomizePage() {
              <div key={s} className="flex items-center gap-4">
                 <div 
                   className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs transition-all duration-500 border ${
-                    step >= s ? 'bg-black dark:bg-white text-white dark:text-black border-transparent' : 'glass-lvl-1 text-black/20 dark:text-white/20 border-black/5 dark:border-white/5'
+                    step >= s ? 'bg-black text-white border-transparent' : 'glass-lvl-1 text-black/20 border-black/5
                   }`}
                 >
                    {step > s ? <Check size={14} /> : s}
                 </div>
-                {s < 3 && <div className={`w-12 h-px ${step > s ? 'bg-black dark:bg-white' : 'bg-black/5 dark:bg-white/5'} transition-colors duration-500`} />}
+                {s < 3 && <div className={`w-12 h-px ${step > s ? 'bg-black : 'bg-black/5 transition-colors duration-500`} />}
              </div>
           ))}
         </div>
@@ -60,8 +60,8 @@ export default function CustomizePage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
           {/* LEFT: Live Preview */}
           <div className="sticky top-40 space-y-8">
-            <div className="aspect-square rounded-[64px] glass-lvl-1 dark:glass-lvl-1 border-black/5 dark:border-white/5 relative overflow-hidden flex items-center justify-center">
-               <div className={`absolute inset-0 bg-gradient-to-br ${selectedProduct.color} opacity-20 dark:opacity-40 blur-[100px]`} />
+            <div className="aspect-square rounded-[64px] glass-lvl-1 border-black/5 relative overflow-hidden flex items-center justify-center">
+               <div className={`absolute inset-0 bg-gradient-to-br ${selectedProduct.color} opacity-20 blur-[100px]`} />
                
                <motion.div 
                  key={selectedProduct.id}
@@ -92,7 +92,7 @@ export default function CustomizePage() {
                      </AnimatePresence>
                      
                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.1),transparent)] pointer-events-none" />
-                     <p className="text-[10px] font-bold text-black/5 dark:text-white/5 uppercase tracking-[0.5em] rotate-12 select-none">{selectedProduct.name}</p>
+                     <p className="text-[10px] font-bold text-black/5 uppercase tracking-[0.5em] rotate-12 select-none">{selectedProduct.name}</p>
                   </div>
                </motion.div>
             </div>
@@ -121,7 +121,7 @@ export default function CustomizePage() {
                   >
                      <div className="space-y-4">
                         <h2 className="text-4xl font-bold font-outfit tracking-tighter">Choose Your <span className="text-black/20 italic">Vessel</span></h2>
-                        <p className="text-black/40 dark:text-white/40">Select the artisanal base artifact for your manifestation.</p>
+                        <p className="text-black/40 the artisanal base artifact for your manifestation.</p>
                      </div>
                      <div className="grid grid-cols-2 gap-4">
                         {products.map((p) => (
@@ -140,7 +140,7 @@ export default function CustomizePage() {
                            </button>
                         ))}
                      </div>
-                     <button onClick={() => setStep(2)} className="w-full py-6 rounded-[32px] bg-black dark:bg-white text-white dark:text-black font-bold flex items-center justify-center gap-4 hover:scale-[1.02] shadow-2xl transition-all">
+                     <button onClick={() => setStep(2)} className="w-full py-6 rounded-[32px] bg-black text-white font-bold flex items-center justify-center gap-4 hover:scale-[1.02] shadow-2xl transition-all">
                         Define Signature <ArrowRight size={20} />
                      </button>
                   </motion.div>
@@ -209,7 +209,7 @@ export default function CustomizePage() {
 
                      <div className="flex gap-4 pt-12">
                         <button onClick={() => setStep(1)} className="px-10 py-6 rounded-[32px] glass-lvl-1 border-black/5 font-bold hover:glass-lvl-3 transition-all text-black/40">Previous</button>
-                        <button onClick={() => setStep(3)} className="flex-1 py-6 rounded-[32px] bg-black dark:bg-white text-white dark:text-black font-bold flex items-center justify-center gap-4 hover:scale-[1.02] shadow-2xl transition-all">Review Protocol <ChevronRight size={20} /></button>
+                        <button onClick={() => setStep(3)} className="flex-1 py-6 rounded-[32px] bg-black text-white font-bold flex items-center justify-center gap-4 hover:scale-[1.02] shadow-2xl transition-all">Review Protocol <ChevronRight size={20} /></button>
                      </div>
                   </motion.div>
                 )}
@@ -224,7 +224,7 @@ export default function CustomizePage() {
                   >
                      <div className="space-y-8">
                         <h2 className="text-4xl font-bold font-outfit tracking-tighter">Final <span className="text-black/20 italic">Validation</span></h2>
-                        <p className="text-black/40 dark:text-white/40">Review your signature artifact before fabrication initiation.</p>
+                        <p className="text-black/40 your signature artifact before fabrication initiation.</p>
                      </div>
 
                      <div className="glass-lvl-1 rounded-[40px] border-black/5 p-10 space-y-6">
@@ -242,7 +242,7 @@ export default function CustomizePage() {
                         <div className="h-px bg-black/5 pt-4" />
                         <div className="space-y-4">
                            <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-accent-violet">Embedded Sigil</p>
-                           <div className="flex justify-between items-center bg-black/5 dark:bg-white/5 p-6 rounded-2xl">
+                           <div className="flex justify-between items-center bg-black/5 p-6 rounded-2xl">
                               <p className={`${selectedFont.className} text-3xl`} style={{ color: selectedColor.hex }}>{customText || "NONE"}</p>
                               <div className="text-right">
                                  <p className="text-[9px] font-bold uppercase tracking-widest text-black/20">Font: {selectedFont.name}</p>
@@ -256,7 +256,7 @@ export default function CustomizePage() {
                         <button onClick={() => setStep(2)} className="px-10 py-6 rounded-[32px] glass-lvl-1 border-black/5 font-bold hover:glass-lvl-3 transition-all text-black/40">Edit</button>
                         <button 
                           onClick={handleFinalize} 
-                          className="flex-1 py-6 rounded-[32px] bg-black dark:bg-white text-white dark:text-black font-bold flex items-center justify-center gap-4 hover:scale-[1.02] shadow-2xl transition-all group"
+                          className="flex-1 py-6 rounded-[32px] bg-black text-white font-bold flex items-center justify-center gap-4 hover:scale-[1.02] shadow-2xl transition-all group"
                         >
                            Initiate Fabrication
                            <ShoppingBag size={20} className="group-hover:translate-y-[-2px] transition-transform" />

@@ -3,7 +3,6 @@
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { ShoppingBag, User, Search, Sparkles, Heart, Menu, X } from "lucide-react";
 import Link from "next/link";
-import ThemeToggle from "@/components/ui/ThemeToggle";
 import { useCart } from "@/context/CartContext";
 import { useState, useEffect } from "react";
 import NavDropdown from "@/components/ui/NavDropdown";
@@ -109,13 +108,10 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* RIGHT: Action Icons */}
           <div className="flex-1 flex items-center justify-end gap-2 md:gap-4">
-            <ThemeToggle />
-
             <button 
               onClick={() => setIsSearchOpen(true)}
-              className="p-3 text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white transition-all hover:scale-110 active:scale-95"
+              className="p-3 text-black/40 hover:text-black transition-all hover:scale-110 active:scale-95"
             >
               <Search size={18} strokeWidth={2.5} />
             </button>

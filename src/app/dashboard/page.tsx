@@ -18,7 +18,7 @@ export default function DashboardPage() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#FDFDFD] dark:bg-[#0A0A0A] text-black dark:text-white transition-colors duration-700">
+    <div className="flex flex-col min-h-screen bg-[#FDFDFD] text-black transition-colors duration-700">
       <Navbar />
       <main className="flex-1 pt-40 pb-24 px-8 max-w-7xl mx-auto w-full">
         <div className="space-y-20">
@@ -28,18 +28,18 @@ export default function DashboardPage() {
                <motion.div 
                  initial={{ opacity: 0, y: 20 }}
                  animate={{ opacity: 1, y: 0 }}
-                 className="inline-flex items-center gap-3 px-5 py-2 rounded-full glass-lvl-1 border-black/5 dark:border-white/5 text-[11px] font-bold tracking-[0.5em] text-accent-violet/60 uppercase mb-4 shadow-sm"
+                 className="inline-flex items-center gap-3 px-5 py-2 rounded-full glass-lvl-1 border-black/5 text-[11px] font-bold tracking-[0.5em] text-accent-violet/60 uppercase mb-4 shadow-sm"
                >
                   <User size={14} className="animate-pulse" />
                   Digital Identity
                </motion.div>
                <h1 className="text-7xl md:text-9xl font-bold font-outfit tracking-tighter leading-none">
-                  Alex <span className="text-black/20 dark:text-white/20 italic">Vane</span>
+                  Alex <span className="text-black/20 italic">Vane</span>
                </h1>
                <p className="text-[10px] font-bold text-black/40 uppercase tracking-[0.5em]">Protocol Level 09 // Verified Artisan Patron</p>
             </div>
             
-            <button className="flex items-center gap-3 px-8 py-4 rounded-3xl glass-lvl-1 border-black/5 dark:border-white/5 text-black/40 hover:text-red-500 transition-all font-bold text-[10px] uppercase tracking-[0.3em] group">
+            <button className="flex items-center gap-3 px-8 py-4 rounded-3xl glass-lvl-1 border-black/5 text-black/40 hover:text-red-500 transition-all font-bold text-[10px] uppercase tracking-[0.3em] group">
                <LogOut size={16} className="group-hover:translate-x-1 transition-transform" />
                Terminate Session
             </button>
@@ -53,7 +53,7 @@ export default function DashboardPage() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: i * 0.1 }}
-                    className="glass-lvl-1 dark:glass-lvl-1 p-10 rounded-[56px] border border-black/5 dark:border-white/5 hover:glass-lvl-3 transition-all duration-700 shadow-sm flex flex-col items-center text-center space-y-6 group cursor-pointer"
+                    className="glass-lvl-1 p-10 rounded-[56px] border border-black/5 hover:glass-lvl-3 transition-all duration-700 shadow-sm flex flex-col items-center text-center space-y-6 group cursor-pointer"
                   >
                      <div className={`w-16 h-16 rounded-3xl flex items-center justify-center ${section.color} group-hover:scale-110 transition-all duration-500 shadow-xl shadow-current opacity-20 group-hover:opacity-100`}>
                         <section.icon size={28} strokeWidth={1.5} className="opacity-100" />
@@ -74,15 +74,15 @@ export default function DashboardPage() {
                    <h2 className="text-2xl font-bold font-outfit tracking-tight">Recent Fabrications</h2>
                    <Link href="/dashboard/orders" className="text-[10px] font-bold uppercase tracking-[0.3em] text-black/20 hover:text-accent-violet transition-colors">View All Signal Traffic</Link>
                 </div>
-                <div className="glass-lvl-1 rounded-[64px] border-black/5 dark:border-white/5 p-16 flex flex-col items-center justify-center text-center space-y-8 min-h-[400px]">
-                   <div className="w-20 h-20 rounded-full glass-lvl-2 flex items-center justify-center text-black/10 dark:text-white/10">
+                <div className="glass-lvl-1 rounded-[64px] border-black/5 p-16 flex flex-col items-center justify-center text-center space-y-8 min-h-[400px]">
+                   <div className="w-20 h-20 rounded-full glass-lvl-2 flex items-center justify-center text-black/10
                       <Clock size={40} strokeWidth={1} />
                    </div>
                    <div className="space-y-2">
                       <h2 className="text-2xl font-bold font-outfit tracking-tight">Protocol 09 // No Recent Activity</h2>
                       <p className="text-sm font-light text-black/40 max-w-xs mx-auto">Manifest your first signature item to observe real-time order telemetry here.</p>
                    </div>
-                   <Link href="/shop" className="px-10 py-5 rounded-[24px] bg-black dark:bg-white text-white dark:text-black font-bold flex items-center gap-3 hover:scale-105 transition-all shadow-2xl group">
+                   <Link href="/shop" className="px-10 py-5 rounded-[24px] bg-black text-white font-bold flex items-center gap-3 hover:scale-105 transition-all shadow-2xl group">
                       Enter Gallery <ArrowRight size={18} className="group-hover:translate-x-1.5 transition-transform" />
                    </Link>
                 </div>
@@ -93,7 +93,7 @@ export default function DashboardPage() {
                 <div className="px-4">
                    <h2 className="text-2xl font-bold font-outfit tracking-tight">Registry Details</h2>
                 </div>
-                <div className="glass-lvl-3 rounded-[56px] border-black/5 dark:border-white/5 p-12 space-y-10">
+                <div className="glass-lvl-3 rounded-[56px] border-black/5 p-12 space-y-10">
                    <div className="space-y-6">
                       <div className="flex items-center gap-4">
                          <div className="w-10 h-10 rounded-2xl glass-lvl-1 flex items-center justify-center text-accent-blue"><MapPin size={20} /></div>

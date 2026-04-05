@@ -85,7 +85,7 @@ export default function Categories() {
         {categories.map((category, index) => (
           <TiltCard key={category.title} maxRotate={8}>
             <Link href={category.href} className="block h-full">
-              <div className="glass-lvl-1 aspect-square p-10 rounded-[48px] border-black/5 dark:border-white/5 group hover:glass-lvl-2 transition-all duration-700 flex flex-col justify-between relative overflow-hidden">
+              <div className="glass-lvl-1 aspect-square p-10 rounded-[48px] border-black/5 group hover:glass-lvl-2 transition-all duration-700 flex flex-col justify-between relative overflow-hidden">
                 {/* Background Glow Context (Softer for Alabaster) */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-60 transition-all duration-1000 blur-[80px] -z-10`} />
                 <div className="absolute top-10 right-10 z-20 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-4 group-hover:translate-x-0">

@@ -29,13 +29,13 @@ export default function ProductDetailPage() {
   );
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#FDFDFD] dark:bg-[#0A0A0A] text-black dark:text-white transition-colors duration-700">
+    <div className="flex flex-col min-h-screen bg-[#FDFDFD] text-black transition-colors duration-700">
       <Navbar />
       
       <main className="flex-1 pt-40 pb-24 px-8 max-w-7xl mx-auto w-full">
         <button 
           onClick={() => router.back()}
-          className="flex items-center gap-2 text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white mb-12 group transition-colors"
+          className="flex items-center gap-2 text-black/40 hover:text-black mb-12 group transition-colors"
         >
           <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
           <span className="text-[10px] font-bold uppercase tracking-[0.3em]">Back to Gallery</span>
@@ -48,10 +48,10 @@ export default function ProductDetailPage() {
             animate={{ opacity: 1, x: 0 }}
             className="space-y-8"
           >
-            <div className="aspect-[4/5] rounded-[64px] glass-lvl-1 dark:glass-lvl-1 border-black/5 dark:border-white/5 relative overflow-hidden group">
-               <div className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-20 dark:opacity-40 blur-[100px]`} />
+            <div className="aspect-[4/5] rounded-[64px] glass-lvl-1 border-black/5 relative overflow-hidden group">
+               <div className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-20 blur-[100px]`} />
                <div className="absolute inset-0 flex items-center justify-center p-20">
-                  <div className="w-full h-full glass-lvl-2 rounded-[48px] border-white/20 shadow-2xl flex items-center justify-center text-black/5 dark:text-white/5 font-outfit font-black text-9xl uppercase tracking-tighter select-none rotate-12">
+                  <div className="w-full h-full glass-lvl-2 rounded-[48px] border-white/20 shadow-2xl flex items-center justify-center text-black/5 font-outfit font-black text-9xl uppercase tracking-tighter select-none rotate-12">
                     {product.name.charAt(0)}
                   </div>
                </div>
@@ -68,7 +68,7 @@ export default function ProductDetailPage() {
             <div className="grid grid-cols-4 gap-4">
               {[1, 2, 3, 4].map((i) => (
                 <div key={i} className="aspect-square rounded-3xl glass-lvl-1 border-black/5 hover:glass-lvl-3 transition-all cursor-pointer overflow-hidden border-2 border-transparent hover:border-accent-violet/20">
-                   <div className="w-full h-full bg-black/[0.02] dark:bg-white/[0.02]" />
+                   <div className="w-full h-full bg-black/[0.02] />
                 </div>
               ))}
             </div>
@@ -82,26 +82,26 @@ export default function ProductDetailPage() {
           >
             <div className="space-y-4">
                <div className="flex items-center gap-3">
-                  <span className="px-3 py-1 rounded-full glass-lvl-1 border-black/5 text-[9px] font-bold uppercase tracking-[0.3em] text-black/40 dark:text-white/40">{product.category}</span>
+                  <span className="px-3 py-1 rounded-full glass-lvl-1 border-black/5 text-[9px] font-bold uppercase tracking-[0.3em] text-black/40
                   <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-accent-gold">Serial #PRL-97X</span>
                </div>
                <h1 className="text-6xl md:text-8xl font-bold font-outfit tracking-tighter leading-none">{product.name}</h1>
-               <p className="text-4xl font-bold font-outfit text-black/20 dark:text-white/20">${product.price.toFixed(2)}</p>
+               <p className="text-4xl font-bold font-outfit text-black/20
             </div>
 
-            <p className="text-xl font-light text-black/60 dark:text-white/60 leading-relaxed max-w-xl">
+            <p className="text-xl font-light text-black/60 leading-relaxed max-w-xl">
                {product.description}
             </p>
 
-            <div className="h-px bg-black/5 dark:bg-white/5" />
+            <div className="h-px bg-black/5 />
 
             {/* Customization Preview Teaser */}
             <div className="space-y-6">
-               <h3 className="text-[10px] font-bold uppercase tracking-[0.5em] text-black/20 dark:text-white/20">Artisan Metadata</h3>
+               <h3 className="text-[10px] font-bold uppercase tracking-[0.5em] text-black/20 Metadata</h3>
                <div className="grid grid-cols-2 gap-8">
                   {product.specs?.map((spec) => (
                     <div key={spec.label} className="space-y-1">
-                       <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-black/40 dark:text-white/40">{spec.label}</p>
+                       <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-black/40
                        <p className="text-lg font-bold font-outfit">{spec.value}</p>
                     </div>
                   ))}
@@ -112,12 +112,12 @@ export default function ProductDetailPage() {
                <div className="flex gap-4">
                   <button 
                     onClick={() => addToCart(product, "", "Inter", "#000000")}
-                    className="flex-1 py-6 rounded-[32px] bg-black dark:bg-white text-white dark:text-black font-bold text-lg flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-95 transition-all shadow-2xl group"
+                    className="flex-1 py-6 rounded-[32px] bg-black text-white font-bold text-lg flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-95 transition-all shadow-2xl group"
                   >
                     Initiate Acquisition
                     <ShoppingBag size={22} className="group-hover:translate-y-[-2px] transition-transform" />
                   </button>
-                  <button className="w-20 rounded-[32px] glass-lvl-1 border-black/5 flex items-center justify-center text-black/40 dark:text-white/40 hover:text-red-500 hover:glass-lvl-3 transition-all">
+                  <button className="w-20 rounded-[32px] glass-lvl-1 border-black/5 flex items-center justify-center text-black/40 hover:text-red-500 hover:glass-lvl-3 transition-all">
                     <Heart size={24} />
                   </button>
                </div>
@@ -137,7 +137,7 @@ export default function ProductDetailPage() {
             </div>
 
             {/* Trust Badges */}
-            <div className="grid grid-cols-3 gap-4 pt-12 border-t border-black/5 dark:bg-white/5">
+            <div className="grid grid-cols-3 gap-4 pt-12 border-t border-black/5
                 {[
                   { icon: ShieldCheck, label: "LIFETIME" },
                   { icon: Truck, label: "GLOBAL" },

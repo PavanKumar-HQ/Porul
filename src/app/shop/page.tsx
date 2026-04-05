@@ -21,7 +21,7 @@ export default function ShopPage() {
   });
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#FDFDFD] dark:bg-[#0A0A0A] text-black dark:text-white transition-colors duration-700">
+    <div className="flex flex-col min-h-screen bg-[#FDFDFD] text-black transition-colors duration-700">
       <Navbar />
       
       <main className="flex-1 pt-40 pb-24 px-8 max-w-7xl mx-auto w-full">
@@ -31,7 +31,7 @@ export default function ShopPage() {
               <motion.div 
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full glass-lvl-1 border-black/5 dark:border-white/5 text-[10px] font-bold uppercase tracking-[0.4em] text-accent-violet/60 shadow-sm"
+                className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full glass-lvl-1 border-black/5 text-[10px] font-bold uppercase tracking-[0.4em] text-accent-violet/60 shadow-sm"
               >
                  <Sparkles size={12} className="animate-pulse" />
                  The Signature Collection
@@ -42,7 +42,7 @@ export default function ShopPage() {
                 transition={{ delay: 0.1 }}
                 className="text-7xl md:text-9xl font-bold font-outfit tracking-tighter leading-none"
               >
-                Artifact <span className="text-black/20 dark:text-white/20 italic">Gallery</span>
+                Artifact <span className="text-black/20 italic">Gallery</span>
               </motion.h1>
             </div>
 
@@ -54,7 +54,7 @@ export default function ShopPage() {
                     placeholder="Identify artifact..." 
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full bg-black/[0.02] dark:bg-white/[0.02] border border-black/5 dark:border-white/5 rounded-[24px] pl-16 pr-6 py-5 text-sm outline-none focus:bg-white dark:focus:bg-black focus:shadow-2xl transition-all font-medium font-outfit"
+                    className="w-full bg-black/[0.02] border border-black/5 rounded-[24px] pl-16 pr-6 py-5 text-sm outline-none focus:bg-white focus:shadow-2xl transition-all font-medium font-outfit"
                   />
                </div>
                <button className="p-5 glass-lvl-1 rounded-[24px] border-black/5 hover:glass-lvl-3 transition-all group">
@@ -71,7 +71,7 @@ export default function ShopPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05 + 0.2 }}
                 onClick={() => setFilter(cat)}
-                className={`px-10 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all duration-500 whitespace-nowrap ${filter === cat ? 'bg-black dark:bg-white text-white dark:text-black shadow-2xl scale-105' : 'glass-lvl-1 border-black/5 text-black/40 hover:text-black'}`}
+                className={`px-10 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all duration-500 whitespace-nowrap ${filter === cat ? 'bg-black text-white shadow-2xl scale-105' : 'glass-lvl-1 border-black/5 text-black/40 hover:text-black'}`}
               >
                 {cat}
               </motion.button>
@@ -94,11 +94,11 @@ export default function ShopPage() {
                 transition={{ duration: 0.5 }}
               >
                 <Link href={`/shop/${product.id}`} className="group block">
-                  <div className="relative aspect-[1/1.2] glass-lvl-1 dark:glass-lvl-1 rounded-[56px] overflow-hidden border-black/5 dark:border-white/5 group-hover:glass-lvl-2 transition-all duration-700 hover:shadow-2xl">
+                  <div className="relative aspect-[1/1.2] glass-lvl-1 rounded-[56px] overflow-hidden border-black/5 group-hover:glass-lvl-2 transition-all duration-700 hover:shadow-2xl">
                     <div className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-0 group-hover:opacity-40 transition-opacity duration-1000 blur-[80px] -z-10`} />
                     
                     <div className="absolute inset-x-8 top-8 bottom-32 glass-lvl-1 border-white/20 rounded-[40px] flex items-center justify-center transition-all duration-700 group-hover:scale-[1.03] group-hover:shadow-2xl bg-white/5 overflow-hidden">
-                       <span className="text-black/5 dark:text-white/5 font-bold uppercase tracking-[1em] text-[40px] rotate-45 select-none">{product.name.charAt(0)}</span>
+                       <span className="text-black/5 font-bold uppercase tracking-[1em] text-[40px] rotate-45 select-none">{product.name.charAt(0)}</span>
                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                           <div className="w-16 h-16 rounded-full glass-lvl-3 flex items-center justify-center text-accent-violet">
                              <Wand2 size={24} />
@@ -108,10 +108,10 @@ export default function ShopPage() {
 
                     <div className="absolute inset-x-0 bottom-0 p-10 pt-0 flex flex-col gap-2">
                       <div className="flex justify-between items-center">
-                        <span className="text-[10px] font-bold text-black/20 dark:text-white/20 uppercase tracking-[0.4em]">{product.category}</span>
-                        <span className="text-xl font-bold font-outfit text-black/40 dark:text-white/40">${product.price.toFixed(0)}</span>
+                        <span className="text-[10px] font-bold text-black/20 uppercase tracking-[0.4em]">{product.category}</span>
+                        <span className="text-xl font-bold font-outfit text-black/40
                       </div>
-                      <h3 className="text-2xl font-bold text-black dark:text-white font-outfit tracking-tight leading-none">{product.name}</h3>
+                      <h3 className="text-2xl font-bold text-black font-outfit tracking-tight leading-none">{product.name}</h3>
                       <div className="pt-2 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0 duration-500">
                          <span className="text-[9px] font-black uppercase tracking-widest text-accent-blue">Manifest Creation</span>
                          <ArrowRight size={14} className="text-black/40" />
