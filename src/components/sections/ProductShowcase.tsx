@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight, Sparkles, Wand2 } from "lucide-react";
 import Link from "next/link";
 import { products } from "@/data/products";
 
@@ -34,7 +34,7 @@ export default function ProductShowcase() {
           <motion.div 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full glass-lvl-1 border-black/5 text-[10px] font-bold uppercase tracking-[0.4em] text-accent-violet mb-8"
+            className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full glass-lvl-1 border-black/5 text-[10px] font-bold uppercase tracking-[0.4em] text-accent-violet mb-8 font-inter"
           >
              <Sparkles size={14} className="animate-pulse" />
              The Curated Atelier
@@ -77,23 +77,36 @@ export default function ProductShowcase() {
             className="flex-shrink-0 w-84 md:w-[480px] snap-start group"
           >
             <Link href={`/shop/${product.id}`}>
-              <div className="relative aspect-[4/5.2] glass-lvl-1 rounded-[64px] overflow-hidden border-black/5 group-hover:glass-lvl-3 transition-all duration-1000 shadow-sm hover:shadow-2xl">
+              <div className="relative aspect-[4/5.2] glass-lvl-1 rounded-[64px] overflow-hidden border-black/5 group-hover:glass-lvl-3 transition-all duration-1000 shadow-sm hover:shadow-2xl bg-white">
                 {/* Background Glow (Pearlescent) */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-0 group-hover:opacity-100 transition-opacity duration-1000 blur-[80px] -z-10`} />
                 
-                {/* Image Placeholder Stage */}
-                <div className="absolute inset-x-10 top-10 bottom-44 glass-lvl-1 border-black/5 rounded-[40px] flex items-center justify-center group-hover:shadow-3xl group-hover:scale-[1.05] transition-all duration-1000 bg-white/50 backdrop-blur-3xl group-hover:shadow-black/5">
-                    <div className="text-black/5 font-bold uppercase tracking-[0.8em] text-[10px] rotate-12 select-none">Atelier Asset</div>
+                {/* Image Stage */}
+                <div className="absolute inset-x-10 top-10 bottom-44 glass-lvl-1 border-black/5 rounded-[40px] flex items-center justify-center group-hover:shadow-3xl group-hover:scale-[1.02] transition-all duration-1000 bg-white/50 backdrop-blur-3xl group-hover:shadow-black/5 overflow-hidden">
+                    <img 
+                      src={product.image} 
+                      alt={product.name}
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black/5 mix-blend-multiply" />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-20`} />
+                    
+                    {/* Centered Interaction Anchor */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-20">
+                        <div className="w-16 h-16 rounded-full glass-lvl-3 flex items-center justify-center text-accent-violet shadow-2xl">
+                           <Wand2 size={24} />
+                        </div>
+                    </div>
                 </div>
 
                 {/* Product Info (Onyx) */}
                 <div className="absolute inset-x-0 bottom-0 p-12 pt-0 flex justify-between items-end text-black">
                     <div className="space-y-3">
-                      <span className="text-[10px] font-bold text-black/20 uppercase tracking-[0.4em]">{product.category}</span>
-                      <h3 className="text-3xl font-bold font-outfit tracking-tighter">{product.name}</h3>
+                      <span className="text-[10px] font-bold text-black/40 uppercase tracking-[0.4em] font-inter">{product.category}</span>
+                      <h3 className="text-3xl font-bold font-outfit tracking-tighter group-hover:text-accent-violet transition-colors">{product.name}</h3>
                     </div>
                     <div className="text-right">
-                      <p className="text-2xl font-bold font-outfit text-black/80 tracking-tight">${product.price.toFixed(2)}</p>
+                      <p className="text-2xl font-bold font-outfit text-black/80 tracking-tight">${product.price.toFixed(0)}</p>
                       <motion.div 
                         whileHover={{ x: 5 }}
                         className="text-[10px] font-bold text-accent-blue uppercase tracking-[0.2em] flex items-center gap-2 mt-4 group opacity-0 group-hover:opacity-100 transition-all duration-500"
