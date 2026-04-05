@@ -39,8 +39,11 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-32 bg-white border-y border-black/[0.03] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-8">
+    <section className="py-60 px-8 max-w-7xl mx-auto bg-[#FDFDFD] relative overflow-hidden group/voices">
+      <div className="absolute top-10 right-10 text-[20vw] font-black text-black/[0.02] uppercase tracking-tighter select-none pointer-events-none group-hover/voices:text-accent-violet/[0.04] transition-colors duration-1000">VOICES</div>
+      <div className="absolute bottom-10 left-10 text-[15vw] font-black text-black/[0.02] uppercase tracking-tighter select-none pointer-events-none">SIGNATURE</div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-24 text-black">
           <motion.div 
             initial={{ opacity: 0 }}

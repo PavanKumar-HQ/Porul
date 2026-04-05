@@ -42,9 +42,12 @@ const categories = [
 
 export default function Categories() {
   return (
-    <section className="py-32 px-8 max-w-7xl mx-auto bg-[#F9F9F9] rounded-[64px] my-12 shadow-sm border border-black/[0.02]">
+    <section className="py-40 px-8 max-w-7xl mx-auto bg-[#F9F9F9] rounded-[80px] my-24 shadow-sm border border-black/[0.02] relative overflow-hidden group/cat">
+      {/* Space Utilization: Background Identity Backdrop */}
+      <div className="absolute top-10 right-10 text-[15vw] font-black text-black/[0.02] uppercase tracking-tighter select-none pointer-events-none group-hover/cat:text-accent-violet/[0.04] transition-colors duration-1000">COLLECTION</div>
+      
       {/* Subtle Section Divider */}
-      <div className="w-full h-px bg-black/[0.03] mb-32" />
+      <div className="w-full h-px bg-black/[0.04] mb-40 relative z-10" />
 
       <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8 text-black">
         <div className="max-w-2xl">
