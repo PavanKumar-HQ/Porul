@@ -1,75 +1,119 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Hammer, Truck, Sparkles, Wand2, ShieldCheck, Microscope } from "lucide-react";
+import { ShieldCheck, Zap, Heart, Globe, Sparkles } from "lucide-react";
 
-const features = [
+const axioms = [
   {
-    title: "Artisanal Logic",
-    description: "Every object is meticulously crafted using high-grade materials to ensure longevity and a bespoke digital pulse.",
-    icon: Hammer,
+    id: "AX-01",
+    title: "Signature Fidelity",
+    description: "Every pixel of your manifestation is translated with artisan-grade precision into physical heirloom reality.",
+    icon: <ShieldCheck size={28} />,
+    color: "bg-[#FDF8F2]", // Sand
+    accent: "text-accent-gold",
+    tag: "Protocol Level 1"
   },
   {
-    title: "Design Studio",
-    description: "Our proprietary customization atelier lets you manifest your unique vision into physical reality.",
-    icon: Wand2,
+    id: "AX-02",
+    title: "Atelier Velocity",
+    description: "Immediate rendering meet heritage craftsmanship. We manifest your vision in record-breaking artisan cycles.",
+    icon: <Zap size={28} />,
+    color: "bg-[#F0F7FF]", // Blue
+    accent: "text-accent-blue",
+    tag: "Protocol Level 2"
   },
   {
-    title: "Global Protocol",
-    description: "Experience white-glove global shipping with tracked delivery, ensuring your creations reach you with care.",
-    icon: Truck,
+    id: "AX-03",
+    title: "Soul Provenance",
+    description: "Your digital identity, physically anchored. Each object carries the indelible signature of its creator.",
+    icon: <Heart size={28} />,
+    color: "bg-[#FAF5FF]", // Violet
+    accent: "text-accent-violet",
+    tag: "Protocol Level 3"
   },
   {
-    title: "Heritage Grade",
-    description: "From sustainable elements to aerospace-grade ceramics, we only use materials worthy of your story.",
-    icon: Microscope,
-  },
+    id: "AX-04",
+    title: "Heritage Reach",
+    description: "Architected for the global collector. We deliver your handcrafted signature to every corner of the modern world.",
+    icon: <Globe size={28} />,
+    color: "bg-[#FFFBF0]", // Gold
+    accent: "text-[#D4AF37]",
+    tag: "Protocol Level 4"
+  }
 ];
 
 export default function WhyPorul() {
   return (
-    <section className="py-32 px-8 max-w-7xl mx-auto bg-[#F9F9F9] rounded-[64px] my-12 shadow-sm border border-black/[0.02]">
-      {/* Section Divider */}
-      <div className="w-full h-px bg-black/[0.03] mb-32" />
+    <section className="py-60 px-8 bg-white relative overflow-hidden group/why-section">
+      {/* Space Utilization: Interactive Background Glyph */}
+      <div className="absolute inset-x-0 inset-y-0 opacity-[0.03] select-none pointer-events-none -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(126,58,242,0.1),transparent_50%),radial-gradient(circle_at_80%_80%,rgba(59,130,246,0.1),transparent_50%)]" />
+      
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center mb-32 space-y-12">
+            <motion.div 
+               initial={{ opacity: 0, scale: 0.9 }}
+               whileInView={{ opacity: 1, scale: 1 }}
+               className="inline-flex items-center gap-4 px-8 py-3 rounded-full glass-lvl-1 border border-black/5 text-[11px] font-black tracking-[0.5em] text-accent-violet/60 mb-8 uppercase shadow-sm bg-white"
+            >
+               <Sparkles size={16} className="animate-pulse text-accent-violet" />
+               The Axiom Protocol
+            </motion.div>
+            
+            <motion.h2 
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               className="text-6xl md:text-[120px] font-bold font-outfit tracking-tighter text-black leading-[0.8]"
+            >
+              The Porul <br />
+              <span className="text-black/10 italic">Axioms</span>
+            </motion.h2>
 
-      <div className="text-center mb-24 text-black">
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full glass-lvl-2 border-black/5 text-[10px] font-bold uppercase tracking-[0.4em] text-accent-violet mb-8 shadow-sm"
-        >
-           <ShieldCheck size={14} className="text-accent-violet/60" />
-           The Porul Philosophy
-        </motion.div>
-        <motion.h2 
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="text-5xl md:text-7xl font-bold font-outfit tracking-tighter"
-        >
-          Why Define <span className="text-black/30">With Us?</span>
-        </motion.h2>
-      </div>
+            <motion.p 
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               className="text-2xl font-light text-black/40 leading-relaxed max-w-2xl mx-auto font-inter italic"
+            >
+              "The foundational principles that govern the manifestation for the digital custodian."
+            </motion.p>
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-        {features.map((feature, index) => (
-          <motion.div
-            key={feature.title}
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
-            className="group p-12 rounded-[64px] hover:bg-white hover:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.06)] transition-all duration-1000 flex flex-col items-center text-center text-black"
-          >
-            <div className="absolute inset-0 glass-lvl-1 opacity-10 pointer-events-none rounded-[64px]" />
-            <div className="w-20 h-20 rounded-[32px] glass-lvl-1 mb-10 flex items-center justify-center text-black/40 group-hover:text-accent-violet group-hover:glass-lvl-3 transition-all duration-700 shadow-sm group-hover:shadow-black/5">
-              <feature.icon size={32} strokeWidth={1.5} />
-            </div>
-            <h3 className="text-2xl font-bold mb-5 font-outfit tracking-tight">{feature.title}</h3>
-            <p className="text-black/60 text-sm leading-relaxed font-light font-inter px-4">
-              {feature.description}
-            </p>
-          </motion.div>
-        ))}
+        {/* Space Utilization: Differentiated Axiom Pods */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+           {axioms.map((axiom, index) => (
+             <motion.div
+               key={axiom.id}
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ delay: index * 0.1 }}
+               className={`group/${axiom.id} relative p-12 rounded-[56px] border border-black/5 hover:border-black/10 transition-all duration-1000 overflow-hidden shadow-sm hover:shadow-2xl hover:scale-[1.02] cursor-default bg-white group/pod`}
+             >
+                <div className={`absolute inset-0 ${axiom.color} opacity-0 group-hover/pod:opacity-100 transition-opacity duration-1000 -z-10`} />
+                
+                <div className="space-y-12 relative z-10">
+                   <div className="flex justify-between items-start">
+                      <div className={`w-16 h-16 rounded-[24px] glass-lvl-1 flex items-center justify-center ${axiom.accent} group-hover/pod:bg-black group-hover/pod:text-white transition-all duration-700 shadow-sm`}>
+                         {axiom.icon}
+                      </div>
+                      <span className="text-[10px] font-black uppercase tracking-widest text-black/20 group-hover/pod:text-black/60 transition-colors">{axiom.id}</span>
+                   </div>
+
+                   <div className="space-y-4">
+                      <h3 className="text-2xl font-bold font-outfit tracking-tight text-black group-hover/pod:translate-x-2 transition-transform duration-700">{axiom.title}</h3>
+                      <p className="text-sm font-light text-black/30 leading-relaxed group-hover/pod:text-black/60 transition-colors">{axiom.description}</p>
+                   </div>
+
+                   <div className="pt-6 flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-accent-violet animate-pulse" />
+                      <span className={`text-[9px] font-black uppercase tracking-[0.2em] ${axiom.accent} opacity-60`}>{axiom.tag}</span>
+                   </div>
+                </div>
+
+                {/* Decorative Elements */}
+                <div className="absolute -bottom-10 -right-10 text-[120px] font-black text-black/[0.02] uppercase tracking-tighter select-none pointer-events-none group-hover/pod:text-black/[0.04] transition-colors rotate-12">{axiom.id.split('-')[1]}</div>
+             </motion.div>
+           ))}
+        </div>
       </div>
     </section>
   );
