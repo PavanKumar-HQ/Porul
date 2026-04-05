@@ -58,8 +58,8 @@ export default function Hero() {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   return (
-    <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#FDFDFD]">
-      {/* Cinematic Mouse-Follow Aura (Increased Opacity) */}
+    <section className="relative h-[70vh] flex items-center justify-center overflow-hidden bg-[#FDFDFD]">
+      {/* Cinematic Mouse-Follow Aura */}
       <motion.div 
         className="pointer-events-none fixed inset-0 z-0 opacity-20"
         animate={{
@@ -67,105 +67,95 @@ export default function Hero() {
         }}
       />
 
-      {/* Floating Artifacts (Higher Visibility) */}
-      <div className="absolute inset-x-0 inset-y-0 pointer-events-none z-10">
-         <motion.div
-           animate={{ y: [0, -10, 0], rotate: [0, 3, 0] }}
-           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-           className="absolute top-[25%] left-[18%] w-32 h-32 md:w-48 md:h-48 opacity-50 mix-blend-multiply"
-         >
-            <div className="relative w-full h-full glass-lvl-1 rounded-[24px] overflow-hidden border border-black/10 p-2 rotate-12 bg-white shadow-lg">
-               <img src="/tee.png" alt="" className="w-full h-full object-cover rounded-xl" />
-            </div>
-         </motion.div>
-         <motion.div
-           animate={{ y: [0, 10, 0], rotate: [0, -5, 0] }}
-           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-           className="absolute bottom-[20%] right-[15%] w-40 h-40 md:w-56 md:h-56 opacity-50 mix-blend-multiply"
-         >
-            <div className="relative w-full h-full glass-lvl-1 rounded-[32px] overflow-hidden border border-black/10 p-2 -rotate-12 bg-white shadow-lg">
-               <img src="/watch.png" alt="" className="w-full h-full object-cover rounded-2xl" />
-            </div>
-         </motion.div>
-      </div>
+      <div className="relative z-20 w-full max-w-[1400px] px-8 flex flex-col lg:flex-row items-center justify-between gap-16 text-center lg:text-left">
+        <div className="flex-1 space-y-8">
+           <motion.div
+              initial={{ opacity: 0, x: -15 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-3 px-6 py-2 rounded-full glass-lvl-1 border border-black/10 text-[10px] font-black tracking-[0.5em] text-accent-violet mb-12 shadow-sm bg-white"
+           >
+              <Sparkles size={12} className="animate-pulse" />
+              The New Standard of Personal Luxury
+           </motion.div>
 
-      <div className="relative z-20 w-full max-w-7xl px-8 flex flex-col items-center text-center">
-        <motion.div
-           initial={{ opacity: 0, scale: 0.95 }}
-           animate={{ opacity: 1, scale: 1 }}
-           transition={{ delay: 0.2 }}
-           className="inline-flex items-center gap-3 px-6 py-2 rounded-full glass-lvl-1 border border-black/10 text-[10px] font-black tracking-[0.5em] text-accent-violet mb-12 shadow-sm bg-white"
-        >
-           <Sparkles size={12} className="animate-pulse" />
-           The New Standard of Personal Luxury
-        </motion.div>
+           <motion.div style={{ y: y1, opacity }} className="space-y-8">
+             <h1 className="text-[56px] md:text-[84px] font-bold font-outfit leading-[0.85] tracking-tighter text-black select-none">
+               Digital <br />
+               <span className="text-black/10 italic">
+                 <TypewriterText text="Heirloom" />
+               </span>
+             </h1>
+             
+             <div className="h-12 flex items-center justify-center lg:justify-start">
+                <AnimatePresence mode="wait">
+                  <motion.p 
+                    key={currentMessage}
+                    initial={{ y: 10, opacity: 0, filter: "blur(2px)" }}
+                    animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+                    exit={{ y: -10, opacity: 0, filter: "blur(2px)" }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    className="text-2xl md:text-3xl font-extralight text-black/60 italic tracking-tight font-outfit"
+                  >
+                    {messages[currentMessage]}
+                  </motion.p>
+                </AnimatePresence>
+             </div>
+           </motion.div>
 
-        <motion.div style={{ y: y1, opacity }} className="space-y-8">
-          <h1 className="text-[56px] md:text-[84px] font-bold font-outfit leading-[0.9] tracking-tighter text-black select-none">
-            Digital<br />
-            <span className="text-black/20 italic">
-              <TypewriterText text="Heirloom" />
-            </span>
-          </h1>
-          
-          <div className="h-12 flex items-center justify-center">
-             <AnimatePresence mode="wait">
-               <motion.p 
-                 key={currentMessage}
-                 initial={{ y: 10, opacity: 0, filter: "blur(2px)" }}
-                 animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-                 exit={{ y: -10, opacity: 0, filter: "blur(2px)" }}
-                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                 className="text-2xl md:text-3xl font-extralight text-black/60 italic tracking-tight font-outfit"
-               >
-                 {messages[currentMessage]}
-               </motion.p>
-             </AnimatePresence>
-          </div>
-        </motion.div>
+           <motion.div 
+             initial={{ opacity: 0, y: 15 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ delay: 1.2 }}
+             className="mt-20 flex flex-col sm:flex-row gap-6 items-center lg:justify-start"
+           >
+             <Link href="/shop" className="group relative px-10 py-6 rounded-[32px] bg-black text-white font-bold flex items-center gap-5 transition-all hover:scale-105 shadow-[0_16px_50px_-15px_rgba(0,0,0,0.5)] hover:shadow-black/20 text-base">
+                Enter Studio Studio
+                <ChevronRight size={18} className="group-hover:translate-x-1.5 transition-transform" />
+             </Link>
+             <Link href="/my-creations" className="group px-10 py-6 rounded-[28px] glass-lvl-1 border border-black/10 font-bold flex items-center gap-4 hover:glass-lvl-3 transition-all duration-500 shadow-sm text-black/50 hover:text-black text-sm">
+                <Wand2 size={16} className="text-accent-violet" />
+                Signature Archive
+             </Link>
+           </motion.div>
+        </div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2 }}
-          className="mt-20 flex flex-col sm:flex-row gap-6 items-center"
-        >
-          <Link href="/shop" className="group relative px-10 py-6 rounded-[32px] bg-black text-white font-bold flex items-center gap-5 transition-all hover:scale-105 shadow-[0_16px_50px_-15px_rgba(0,0,0,0.5)] hover:shadow-black/20 text-base">
-             Enter The Atelier Studio
-             <ChevronRight size={18} className="group-hover:translate-x-1.5 transition-transform" />
-          </Link>
-          <Link href="/my-creations" className="group px-10 py-6 rounded-[28px] glass-lvl-1 border border-black/10 font-bold flex items-center gap-4 hover:glass-lvl-3 transition-all duration-500 shadow-sm text-black/50 hover:text-black text-sm">
-             <Wand2 size={16} className="text-accent-violet group-hover:rotate-12 transition-transform" />
-             Signature Archive
-          </Link>
-        </motion.div>
+        {/* Right Artifact Preview (Horizontal Filling) */}
+        <div className="flex-1 hidden lg:flex items-center justify-center relative h-[500px]">
+           <motion.div
+              animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-0 right-0 w-64 h-64 opacity-50 mix-blend-multiply"
+           >
+              <div className="relative w-full h-full glass-lvl-1 rounded-[32px] overflow-hidden border border-black/10 p-2 rotate-12 bg-white shadow-lg">
+                 <img src="/tee.png" alt="" className="w-full h-full object-cover rounded-2xl" />
+              </div>
+           </motion.div>
+           <motion.div
+              animate={{ y: [0, 10, 0], rotate: [0, -8, 0] }}
+              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute bottom-0 left-0 w-80 h-80 opacity-50 mix-blend-multiply"
+           >
+              <div className="relative w-full h-full glass-lvl-1 rounded-[40px] overflow-hidden border border-black/10 p-2 -rotate-12 bg-white shadow-lg">
+                 <img src="/watch.png" alt="" className="w-full h-full object-cover rounded-2xl" />
+              </div>
+           </motion.div>
+        </div>
       </div>
 
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 text-black/20"
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-black/15"
       >
-        <span className="text-[9px] font-black uppercase tracking-[0.8em]">Scroll Protocol</span>
-        <motion.div
-           animate={{ y: [0, 8, 0] }}
-           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-        >
-           <ArrowDown size={32} strokeWidth={1} />
-        </motion.div>
+        <span className="text-[10px] font-black uppercase tracking-[0.8em]">Atelier Scroll</span>
+        <ArrowDown size={32} strokeWidth={1} />
       </motion.div>
-
-      {/* Atmospheric Alabaster Orbs */}
-      <motion.div 
-        animate={{ 
-           rotate: [0, 360],
-           x: [0, 40, 0],
-           y: [0, 30, 0]
-        }}
-        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-        className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-accent-violet/[0.06] rounded-full blur-[100px] -z-10"
-      />
     </section>
   );
 }
+
+const ArrowDown = ({ size, strokeWidth }: { size: number, strokeWidth: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+);
