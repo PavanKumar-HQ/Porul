@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from { "framer-motion" };
+import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Wand2, Star, Lock, Heart } from "lucide-react";
 import Link from "next/link";
 
