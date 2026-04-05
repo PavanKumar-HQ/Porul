@@ -5,7 +5,6 @@ import { CartProvider } from "@/context/CartContext";
 import { WishlistProvider } from "@/context/WishlistContext";
 import CartDrawer from "@/components/cart/CartDrawer";
 import MotionProvider from "@/components/providers/MotionProvider";
-import CustomCursor from "@/components/ui/CustomCursor";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 
 const inter = Inter({
@@ -33,8 +32,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-[#FDFDFD] text-[#121212] selection:bg-accent-blue/10 overflow-x-hidden">
         <CartProvider>
           <WishlistProvider>
-            {/* Custom Interactive Elements (Component handles cursor hiding internally) */}
-            <CustomCursor />
+            {/* Keeping Technical Scroll Progress but Restoring Normal Cursor */}
             <ScrollProgress />
 
             {/* Alabaster Aura System - Softer Sunlight Tints */}
