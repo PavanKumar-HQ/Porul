@@ -61,7 +61,7 @@ export default function Navbar() {
               <Link 
                 key={link.name}
                 href={link.href}
-                className="relative text-[10px] font-bold text-black/40 uppercase tracking-[0.3em] transition-colors hover:text-black px-6 py-4"
+                className="relative text-[10px] font-bold text-black/60 uppercase tracking-[0.3em] transition-colors hover:text-black px-6 py-4"
                 onMouseEnter={() => setHoveredLink(link.name)}
                 onMouseLeave={() => setHoveredLink(null)}
               >
@@ -111,12 +111,12 @@ export default function Navbar() {
           <div className="flex-1 flex items-center justify-end gap-2 md:gap-4">
             <button 
               onClick={() => setIsSearchOpen(true)}
-              className="p-3 text-black/40 hover:text-black transition-all hover:scale-110 active:scale-95"
+              className="p-3 text-black/60 hover:text-black transition-all hover:scale-110 active:scale-95"
             >
               <Search size={18} strokeWidth={2.5} />
             </button>
 
-            <Link href="/wishlist" className="p-3 text-black/40 hover:text-red-500 transition-all hover:scale-110 active:scale-95 hidden sm:block">
+            <Link href="/wishlist" className="p-3 text-black/60 hover:text-red-500 transition-all hover:scale-110 active:scale-95 hidden sm:block">
               <Heart size={18} strokeWidth={2.5} />
             </Link>
 
@@ -136,7 +136,7 @@ export default function Navbar() {
 
             <Link href="/dashboard" className="p-1 group flex items-center gap-3">
               <div className="w-10 h-10 rounded-full glass-lvl-1 border border-black/5 flex items-center justify-center group-hover:glass-lvl-3 transition-all duration-500 overflow-hidden shadow-sm group-hover:shadow-black/5 group-hover:border-accent-violet/20">
-                 <User size={18} className="text-black/40 group-hover:text-black transition-colors" />
+                 <User size={18} className="text-black/60 group-hover:text-black transition-colors" />
               </div>
             </Link>
 

@@ -58,8 +58,9 @@ export default function WhyPorul() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="group glass-lvl-2 p-12 rounded-[56px] border-black/5 hover:glass-lvl-3 transition-all duration-1000 flex flex-col items-center text-center text-black hover:shadow-3xl"
+            className="group p-12 rounded-[64px] hover:bg-white hover:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.06)] transition-all duration-1000 flex flex-col items-center text-center text-black"
           >
+            <div className="absolute inset-0 glass-lvl-1 opacity-10 pointer-events-none rounded-[64px]" />
             <div className="w-20 h-20 rounded-[32px] glass-lvl-1 mb-10 flex items-center justify-center text-black/40 group-hover:text-accent-violet group-hover:glass-lvl-3 transition-all duration-700 shadow-sm group-hover:shadow-black/5">
               <feature.icon size={32} strokeWidth={1.5} />
             </div>

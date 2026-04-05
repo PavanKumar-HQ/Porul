@@ -94,7 +94,8 @@ export default function ShopPage() {
                 transition={{ duration: 0.5 }}
               >
                 <Link href={`/shop/${product.id}`} className="group block h-full">
-                  <div className="relative aspect-[1/1.2] glass-lvl-1 rounded-[56px] overflow-hidden border-black/5 group-hover:glass-lvl-2 transition-all duration-700 hover:shadow-2xl flex flex-col h-full">
+                  <div className="relative aspect-[1/1.2] bg-white rounded-[40px] overflow-hidden border border-black/[0.04] group-hover:border-accent-violet/20 transition-all duration-700 hover:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08)] flex flex-col h-full">
+                    <div className="absolute inset-0 glass-lvl-1 opacity-10 pointer-events-none" />
                     {/* Image Area */}
                     <div className="relative flex-1 p-6">
                       <div className="absolute inset-0 overflow-hidden rounded-[40px] m-4">

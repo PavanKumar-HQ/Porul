@@ -78,7 +78,7 @@ export default function Categories() {
            whileInView={{ opacity: 1 }}
            viewport={{ once: true }}
         >
-          <Link href="/shop" className="group flex items-center gap-2 text-black/40 hover:text-black transition-colors font-bold uppercase tracking-widest text-[10px] font-inter">
+          <Link href="/shop" className="group flex items-center gap-4 px-8 py-3.5 rounded-full glass-lvl-1 border border-black/5 text-black/60 hover:text-black hover:glass-lvl-3 transition-all font-bold uppercase tracking-widest text-[10px] font-inter shadow-sm hover:shadow-black/5">
             View All Collections
             <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
@@ -89,7 +89,9 @@ export default function Categories() {
         {categories.map((category, index) => (
           <TiltCard key={category.title} maxRotate={8}>
             <Link href={category.href} className="block h-full group">
-              <div className="glass-lvl-1 aspect-square p-10 rounded-[48px] border-black/5 hover:glass-lvl-2 transition-all duration-700 flex flex-col justify-between relative overflow-hidden bg-white shadow-sm">
+              <div className="bg-[#F4F4F4] aspect-square p-10 rounded-[48px] border border-black/[0.05] hover:bg-white hover:shadow-2xl transition-all duration-700 flex flex-col justify-between relative overflow-hidden group">
+                {/* Category Identity: Soft Material Glass */}
+                <div className="absolute inset-0 glass-lvl-1 opacity-20 pointer-events-none" />
                 {/* Image Background Layer */}
                 <div className="absolute inset-0 z-0 m-4 rounded-[40px] overflow-hidden">
                    <img src={category.image} alt="" className="w-full h-full object-cover opacity-10 group-hover:opacity-40 transition-opacity duration-1000 scale-125 group-hover:scale-100" />
@@ -135,8 +137,8 @@ export default function Categories() {
                    transition={{ delay: index * 0.1 + 0.5 }}
                    className="mt-16 flex items-center justify-between relative z-10"
                 >
-                   <span className="text-xs font-bold uppercase tracking-[0.4em] text-black/20 group-hover:text-accent-violet transition-colors font-inter">Begin Manifestation</span>
-                   <div className="w-12 h-12 rounded-full border border-black/5 glass-lvl-1 flex items-center justify-center group-hover:bg-black group-hover:text-white group-hover:scale-110 transition-all duration-500 shadow-sm">
+                   <span className="text-xs font-bold uppercase tracking-[0.4em] text-black/40 group-hover:text-accent-violet transition-colors font-inter">Begin Manifestation</span>
+                   <div className="w-12 h-12 rounded-full border border-black/5 glass-lvl-1 flex items-center justify-center group-hover:bg-black group-hover:text-white group-hover:scale-110 transition-all duration-500 shadow-sm hover:shadow-black/10">
                       <ArrowUpRight size={20} />
                    </div>
                 </motion.div>

@@ -77,7 +77,9 @@ export default function ProductShowcase() {
             className="flex-shrink-0 w-84 md:w-[480px] snap-start group"
           >
             <Link href={`/shop/${product.id}`}>
-              <div className="relative aspect-[4/5.2] glass-lvl-1 rounded-[64px] overflow-hidden border-black/5 group-hover:glass-lvl-3 transition-all duration-1000 shadow-sm hover:shadow-2xl bg-white">
+              <div className="relative aspect-[4/5.2] bg-white rounded-[72px] overflow-hidden border border-black/5 group-hover:border-accent-violet/20 transition-all duration-1000 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.12)]">
+                {/* Product Section Differentiation: Elite Glass */}
+                <div className="absolute inset-0 glass-lvl-1 opacity-50" />
                 {/* Background Glow (Pearlescent) */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-0 group-hover:opacity-100 transition-opacity duration-1000 blur-[80px] -z-10`} />
                 
