@@ -109,7 +109,7 @@ export default function ShopPage() {
                     <div className="absolute inset-x-0 bottom-0 p-10 pt-0 flex flex-col gap-2">
                       <div className="flex justify-between items-center">
                         <span className="text-[10px] font-bold text-black/20 uppercase tracking-[0.4em]">{product.category}</span>
-                        <span className="text-xl font-bold font-outfit text-black/40
+                        <span className="text-xl font-bold font-outfit text-black/40">${product.price.toFixed(0)}</span>
                       </div>
                       <h3 className="text-2xl font-bold text-black font-outfit tracking-tight leading-none">{product.name}</h3>
                       <div className="pt-2 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0 duration-500">
