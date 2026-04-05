@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Quote, Star, Sparkles, User } from "lucide-react";
+import { Quote, Star, User } from "lucide-react";
 
 const testimonials = [
   {
@@ -21,22 +21,36 @@ const testimonials = [
     author: "Marcus Thorne",
     role: "Heritage Collector",
     rating: 5
+  },
+  {
+    quote: "The acquisition protocol is seamless. My signature was translated onto obsidian glass with true artisan spirit.",
+    author: "Elena Vance",
+    role: "Visual Director",
+    rating: 5
+  },
+  {
+    quote: "A spatial atelier that understands the weight of digital value. This is the future of luxury acquisition.",
+    author: "Julian Reed",
+    role: "Spatial Designer",
+    rating: 5
   }
 ];
 
 export default function Testimonials() {
-  return (
-    <section className="py-20 px-8 bg-white relative overflow-hidden group/test-section">
-      {/* Dynamic Background (Reduced Empty Feel) */}
-      <div className="absolute inset-x-0 inset-y-0 opacity-[0.02] select-none pointer-events-none -z-10 bg-[radial-gradient(circle_at_50%_50%,rgba(126,58,242,0.1),transparent_70%)]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] font-black text-black/[0.015] uppercase tracking-tighter select-none pointer-events-none group-hover/test-section:text-accent-violet/[0.03] transition-colors duration-1000">VOICES</div>
+  const doubledTestimonials = [...testimonials, ...testimonials];
 
-      <div className="max-w-[1400px] mx-auto relative z-10">
-        <div className="text-center mb-16 space-y-6">
+  return (
+    <section className="py-20 px-8 bg-[#F0F7FF]/20 relative overflow-hidden group/test-section border-y border-black/5">
+      {/* Dynamic Background */}
+      <div className="absolute inset-x-0 inset-y-0 opacity-[0.02] select-none pointer-events-none -z-10 bg-[radial-gradient(circle_at_50%_50%,rgba(0,112,243,0.1),transparent_70%)]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[10vw] font-black text-black/[0.012] uppercase tracking-tighter select-none pointer-events-none">SIGNATURE</div>
+
+      <div className="max-w-[1400px] mx-auto relative z-10 mb-16">
+        <div className="text-center space-y-6">
             <motion.div 
                initial={{ opacity: 0, scale: 0.9 }}
                whileInView={{ opacity: 1, scale: 1 }}
-               className="inline-flex items-center gap-3 px-5 py-1.5 rounded-full glass-lvl-1 border border-black/10 text-[10px] font-black tracking-[0.4em] text-accent-violet mb-4 uppercase bg-white/40"
+               className="inline-flex items-center gap-3 px-5 py-1.5 rounded-full glass-lvl-1 border border-black/10 text-[10px] font-black tracking-[0.4em] text-accent-violet uppercase bg-white/40"
             >
                <Star size={12} className="animate-pulse text-accent-gold" fill="currentColor" />
                Atelier Conversations
@@ -45,52 +59,61 @@ export default function Testimonials() {
             <motion.h2 
                initial={{ opacity: 0, y: 15 }}
                whileInView={{ opacity: 1, y: 0 }}
-               className="text-5xl md:text-7xl font-bold font-outfit tracking-tighter text-black leading-[0.85]"
+               className="text-5xl md:text-6xl font-bold font-outfit tracking-tighter text-black leading-[0.85]"
             >
-              The Voice <br />
-              <span className="text-black/15 italic text-black/25">of Heritage</span>
+              The Voice of <span className="text-black/15 italic">Heritage</span>
             </motion.h2>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-           {testimonials.map((test, index) => (
-             <motion.div
-               key={index}
-               initial={{ opacity: 0, y: 15 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true }}
-               transition={{ delay: index * 0.1 }}
-               className="relative p-10 rounded-[40px] border border-black/5 bg-white shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-700 group/card overflow-hidden"
-             >
-                <div className="absolute -top-6 -right-6 text-black/[0.03] group-hover/card:text-accent-violet/[0.06] transition-colors duration-700">
-                   <Quote size={120} strokeWidth={4} />
-                </div>
-                
-                <div className="relative z-10 space-y-8">
-                   <div className="flex gap-1.5">
-                      {[...Array(test.rating)].map((_, i) => (
-                         <Star key={i} size={14} className="fill-accent-gold text-accent-gold" />
-                      ))}
-                   </div>
-
-                   <p className="text-xl font-light text-black/60 italic leading-relaxed font-outfit">
-                      "{test.quote}"
-                   </p>
-
-                   <div className="flex items-center gap-5 pt-4 border-t border-black/5">
-                      <div className="w-14 h-14 rounded-2xl glass-lvl-2 border border-black/5 flex items-center justify-center text-black/30 group-hover/card:bg-black group-hover/card:text-white transition-all bg-white shadow-sm">
-                         <User size={24} />
-                      </div>
-                      <div>
-                         <h4 className="text-lg font-bold font-outfit tracking-tight text-black">{test.author}</h4>
-                         <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/30">{test.role}</p>
-                      </div>
-                   </div>
-                </div>
-             </motion.div>
-           ))}
-        </div>
       </div>
+
+      {/* Marquee Implementation */}
+      <div className="flex overflow-hidden relative group/marquee">
+         <motion.div 
+            className="flex gap-8 py-8 px-4 whitespace-nowrap min-w-full items-center"
+            animate={{ x: [0, -1500] }}
+            transition={{ 
+               duration: 60, 
+               repeat: Infinity, 
+               ease: "linear" 
+            }}
+         >
+            {doubledTestimonials.map((test, index) => (
+               <div
+                  key={index}
+                  className="relative w-[450px] flex-shrink-0 p-8 rounded-[40px] border border-black/5 bg-white shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-700 group/card overflow-hidden whitespace-normal"
+               >
+                  <div className="absolute -top-4 -right-4 text-black/[0.02] group-hover/card:text-accent-violet/[0.04] transition-colors duration-700">
+                     <Quote size={80} strokeWidth={4} />
+                  </div>
+                  
+                  <div className="relative z-10 space-y-6">
+                     <div className="flex gap-1.5">
+                        {[...Array(test.rating)].map((_, i) => (
+                           <Star key={i} size={12} className="fill-accent-gold text-accent-gold" />
+                        ))}
+                     </div>
+
+                     <p className="text-lg font-light text-black/60 italic leading-relaxed font-outfit">
+                        "{test.quote}"
+                     </p>
+
+                     <div className="flex items-center gap-4 pt-4 border-t border-black/5">
+                        <div className="w-12 h-12 rounded-2xl glass-lvl-2 border border-black/5 flex items-center justify-center text-black/30 group-hover/card:bg-black group-hover/card:text-white transition-all bg-white shadow-sm">
+                           <User size={20} />
+                        </div>
+                        <div>
+                           <h4 className="text-base font-bold font-outfit tracking-tight text-black">{test.author}</h4>
+                           <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/30">{test.role}</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            ))}
+         </motion.div>
+      </div>
+
+      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-20 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-20 pointer-events-none" />
     </section>
   );
 }

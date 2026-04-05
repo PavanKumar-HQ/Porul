@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { ArrowDown, Sparkles, ChevronRight, Wand2, Star, ShieldCheck } from "lucide-react";
+import { ArrowDown, Sparkles, ChevronRight, Wand2, ShieldCheck, Crown, Terminal, Box } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -58,35 +58,38 @@ export default function Hero() {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   return (
-    <section className="relative h-[65vh] flex items-center justify-center overflow-hidden bg-[#FDFDFD]">
-      {/* Cinematic Mouse-Follow Aura (Enhanced for 'Proper' Look) */}
+    <section className="relative h-[80vh] flex items-center justify-center overflow-hidden bg-[#FDFDFD]">
+      {/* Improvised Space Optimization: Architectural Blueprint Backdrop */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-black text-black/[0.015] uppercase tracking-tighter select-none pointer-events-none">HEIRLOOM</div>
+
       <motion.div 
         className="pointer-events-none fixed inset-0 z-0 opacity-25"
         animate={{
-          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(126, 58, 242, 0.12), transparent 80%)`
+          background: `radial-gradient(800px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(126, 58, 242, 0.12), transparent 80%)`
         }}
       />
 
-      <div className="relative z-20 w-full max-w-[1400px] px-8 flex flex-col lg:flex-row items-center justify-between gap-12 text-center lg:text-left">
-        <div className="flex-1 space-y-6">
+      <div className="relative z-20 w-full max-w-[1400px] px-8 flex flex-col lg:flex-row items-center justify-between gap-16 text-center lg:text-left">
+        <div className="flex-1 space-y-8">
            <motion.div
               initial={{ opacity: 0, x: -15 }}
               animate={{ opacity: 1, x: 0 }}
-              className="inline-flex items-center gap-3 px-6 py-2 rounded-full glass-lvl-1 border border-black/10 text-[10px] font-black tracking-[0.5em] text-accent-violet mb-8 shadow-sm bg-white"
+              className="inline-flex items-center gap-4 px-6 py-2 rounded-full glass-lvl-1 border border-black/10 text-[10px] font-black tracking-[0.5em] text-accent-violet mb-12 shadow-sm bg-white"
            >
-              <ShieldCheck size={14} className="animate-pulse" />
+              <Crown size={14} className="animate-pulse" />
               The New Standard of Personal Luxury
            </motion.div>
 
-           <motion.div style={{ y: y1, opacity }} className="space-y-6">
-             <h1 className="text-[56px] md:text-[84px] lg:text-[96px] font-bold font-outfit leading-[0.8] tracking-tighter text-black select-none">
+           <motion.div style={{ y: y1, opacity }} className="space-y-8">
+             <h1 className="text-[64px] md:text-[96px] lg:text-[110px] font-bold font-outfit leading-[0.8] tracking-tighter text-black select-none">
                Digital <br />
                <span className="text-black/20 italic">
                  <TypewriterText text="Heirloom" />
                </span>
              </h1>
              
-             <div className="h-10 flex items-center justify-center lg:justify-start">
+             <div className="h-12 flex items-center justify-center lg:justify-start">
                 <AnimatePresence mode="wait">
                   <motion.p 
                     key={currentMessage}
@@ -94,7 +97,7 @@ export default function Hero() {
                     animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
                     exit={{ y: -10, opacity: 0, filter: "blur(2px)" }}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                    className="text-2xl md:text-3xl font-extralight text-black/50 italic tracking-tight font-outfit"
+                    className="text-2xl md:text-4xl font-extralight text-black/50 italic tracking-tight font-outfit"
                   >
                     {messages[currentMessage]}
                   </motion.p>
@@ -106,56 +109,84 @@ export default function Hero() {
              initial={{ opacity: 0, y: 15 }}
              animate={{ opacity: 1, y: 0 }}
              transition={{ delay: 1.2 }}
-             className="mt-16 flex flex-col sm:flex-row gap-5 items-center lg:justify-start"
+             className="mt-20 flex flex-col sm:flex-row gap-6 items-center lg:justify-start"
            >
-             <Link href="/shop" className="group relative px-10 py-6 rounded-[28px] bg-black text-white font-bold flex items-center gap-6 transition-all hover:scale-105 shadow-2xl hover:shadow-black/20 text-base">
+             <Link href="/shop" className="group relative px-12 py-7 rounded-[32px] bg-black text-white font-bold flex items-center gap-7 transition-all hover:scale-105 shadow-2xl hover:shadow-black/20 text-lg">
                 Enter The Studio
-                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-white/20 ml-2">
-                   <ChevronRight size={18} />
+                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-2 transition-transform">
+                   <ChevronRight size={22} />
                 </div>
              </Link>
-             <Link href="/my-creations" className="group px-10 py-6 rounded-[24px] glass-lvl-1 border border-black/10 font-bold flex items-center gap-4 hover:glass-lvl-3 transition-all duration-500 shadow-sm text-black/50 hover:text-black text-sm">
-                <Wand2 size={16} className="text-accent-violet" />
-                Archive Protocol
+             <Link href="/my-creations" className="group px-12 py-7 rounded-[28px] glass-lvl-1 border border-black/10 font-bold flex items-center gap-5 hover:glass-lvl-3 transition-all duration-500 shadow-sm text-black/40 hover:text-black">
+                <Wand2 size={20} className="text-accent-violet" />
+                Manifest Profile
              </Link>
           </motion.div>
         </div>
 
-        {/* Right Artifact Preview (Wider + Proper Look) */}
-        <div className="flex-1 hidden lg:flex items-center justify-center relative h-[400px]">
-           <motion.div
-              animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
-              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-              className="absolute top-0 right-0 w-64 h-64 opacity-60 mix-blend-multiply hover:opacity-100 transition-opacity duration-700"
+        {/* Improved Horizontal Layout: Technical Data Display */}
+        <div className="flex-1 hidden lg:flex flex-col gap-12 items-end">
+           <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5 }}
+              className="glass-lvl-3 p-10 rounded-[56px] border border-black/10 w-[480px] space-y-8 relative overflow-hidden"
            >
-              <div className="relative w-full h-full glass-lvl-1 rounded-[40px] overflow-hidden border border-black/10 p-3 rotate-6 bg-white shadow-2xl">
-                 <img src="/tee.png" alt="" className="w-full h-full object-cover rounded-2xl" />
-                 <div className="absolute top-4 left-4 w-8 h-8 rounded-full glass-lvl-3 flex items-center justify-center">
-                    <Star size={14} className="text-accent-gold" fill="currentColor" />
+              <div className="flex justify-between items-start mb-10">
+                 <div className="w-16 h-16 rounded-2xl bg-black flex items-center justify-center text-white">
+                    <Terminal size={32} />
+                 </div>
+                 <span className="text-[10px] font-black uppercase tracking-widest text-black/30">Protocol v3.1</span>
+              </div>
+              <div className="space-y-4">
+                 <div className="h-2 w-full bg-black/5 rounded-full overflow-hidden">
+                    <motion.div 
+                       animate={{ x: ["-100%", "100%"] }}
+                       transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                       className="h-full w-1/3 bg-accent-violet" 
+                    />
+                 </div>
+                 <div className="flex justify-between text-[10px] font-black uppercase tracking-[0.3em] text-black/40">
+                    <span>Rendering Identity</span>
+                    <span className="text-accent-violet">98% Signature</span>
                  </div>
               </div>
-           </motion.div>
-           <motion.div
-              animate={{ y: [0, 10, 0], rotate: [0, -8, 0] }}
-              transition={{ duration: 18, repeat: Infinity, ease: "linear", delay: 1 }}
-              className="absolute bottom-0 left-0 w-80 h-80 opacity-60 mix-blend-multiply hover:opacity-100 transition-opacity duration-700"
-           >
-              <div className="relative w-full h-full glass-lvl-1 rounded-[48px] overflow-hidden border border-black/10 p-3 -rotate-6 bg-white shadow-2xl">
-                 <img src="/watch.png" alt="" className="w-full h-full object-cover rounded-2xl" />
-                 <div className="absolute bottom-4 right-4 text-[8px] font-black uppercase tracking-widest text-black/30">Protocol Verified</div>
+              <div className="grid grid-cols-2 gap-6 mt-10">
+                 <div className="p-6 rounded-3xl bg-[#F0F7FF]/40 border border-black/5">
+                    <ShieldCheck size={20} className="text-accent-blue mb-3" />
+                    <p className="text-[9px] font-black uppercase tracking-widest text-black/30">Vault Status</p>
+                    <p className="text-sm font-bold text-black mt-1">SECURED</p>
+                 </div>
+                 <div className="p-6 rounded-3xl bg-[#FAF5FF]/40 border border-black/5">
+                    <Box size={20} className="text-accent-violet mb-3" />
+                    <p className="text-[9px] font-black uppercase tracking-widest text-black/30">Manifest Count</p>
+                    <p className="text-sm font-bold text-black mt-1">12K+</p>
+                 </div>
               </div>
+              <div className="absolute -bottom-10 -right-10 text-[120px] font-black text-black/[0.015] -rotate-12 select-none pointer-events-none">SIGN</div>
            </motion.div>
+           
+           <div className="flex gap-8 group/socials">
+              <span className="text-[9px] font-black uppercase tracking-[0.5em] text-black/20 group-hover/socials:text-black/40 transition-colors">Protocol Identity (Manifesto)</span>
+              <div className="w-20 h-px bg-black/10 mt-1.5" />
+           </div>
         </div>
       </div>
 
+      {/* Floating Status Indicator */}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-        className="absolute bottom-10 left-10 flex items-center gap-4 text-black/20"
+        transition={{ delay: 2.5 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 text-black/20"
       >
-        <span className="text-[10px] font-black uppercase tracking-[0.5em]">Atelier Studio v2.2</span>
-        <div className="w-20 h-px bg-black/10" />
+        <span className="text-[10px] font-black uppercase tracking-[0.8em]">Atelier Scroll</span>
+        <motion.div
+           animate={{ y: [0, 8, 0] }}
+           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        >
+           <ArrowDown size={32} strokeWidth={1} />
+        </motion.div>
       </motion.div>
     </section>
   );
