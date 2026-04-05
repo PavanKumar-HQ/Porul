@@ -5,6 +5,8 @@ import { CartProvider } from "@/context/CartContext";
 import { WishlistProvider } from "@/context/WishlistContext";
 import CartDrawer from "@/components/cart/CartDrawer";
 import MotionProvider from "@/components/providers/MotionProvider";
+import CustomCursor from "@/components/ui/CustomCursor";
+import ScrollProgress from "@/components/ui/ScrollProgress";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -28,9 +30,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable} antialiased`}>
-      <body className="min-h-screen bg-[#FDFDFD] text-[#121212] selection:bg-accent-blue/10 overflow-x-hidden">
+      <body className="min-h-screen bg-[#FDFDFD] text-[#121212] selection:bg-accent-blue/10 overflow-x-hidden cursor-none">
         <CartProvider>
           <WishlistProvider>
+            {/* Custom Interactive Elements */}
+            <CustomCursor />
+            <ScrollProgress />
+
             {/* Alabaster Aura System - Softer Sunlight Tints */}
             <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
               <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-accent-blue/5 blur-[120px] animate-pulse" />
