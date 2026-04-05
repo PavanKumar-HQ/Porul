@@ -18,7 +18,7 @@ export default function CartDrawer() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsOpen(false)}
-            className="fixed inset-0 bg-white/40 backdrop-blur-md z-[100]"
+            className="fixed inset-0 bg-white/60 backdrop-blur-md z-[100]"
           />
 
           {/* Drawer (Alabaster Panel) */}
@@ -27,78 +27,67 @@ export default function CartDrawer() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed right-0 top-0 bottom-0 w-full max-w-md glass-lvl-3 border-l border-black/5 z-[101] shadow-[0_0_80px_rgba(0,0,0,0.1)] flex flex-col"
+            className="fixed right-0 top-0 bottom-0 w-full max-w-lg glass-lvl-3 border-l border-black/15 z-[101] shadow-[0_0_120px_rgba(0,0,0,0.15)] flex flex-col bg-white"
           >
-            <div className="p-8 border-b border-black/5 flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                 <div className="w-10 h-10 rounded-2xl glass-lvl-1 flex items-center justify-center text-accent-violet">
-                    <ShoppingBag size={20} />
+            <div className="p-10 border-b border-black/10 flex items-center justify-between">
+              <div className="flex items-center gap-5">
+                 <div className="w-12 h-12 rounded-2xl border border-black/15 flex items-center justify-center text-black shadow-xl">
+                    <ShoppingBag size={24} />
                  </div>
                  <div className="flex flex-col">
-                    <h2 className="text-xl font-bold font-outfit uppercase tracking-tighter text-black">Atelier Bag</h2>
-                    <span className="text-[9px] font-bold text-black/30 uppercase tracking-[0.2em]">
-                       {cart.length} Signature Creations
+                    <h2 className="text-2xl font-bold font-outfit uppercase tracking-tighter text-black">Atelier Bag</h2>
+                    <span className="text-[11px] font-black text-black/60 uppercase tracking-[0.2em]">
+                       {cart.length} Artifacts in registry
                     </span>
                  </div>
               </div>
               <button 
                 onClick={() => setIsOpen(false)}
-                className="p-3 hover:bg-black/5 rounded-2xl transition-all text-black/20 hover:text-black"
+                className="p-4 hover:bg-black hover:text-white rounded-3xl transition-all text-black/40 shadow-sm border border-black/5"
               >
-                <X size={20} />
+                <X size={24} />
               </button>
             </div>
 
             {cart.length === 0 ? (
-              <div className="flex-1 p-8 flex flex-col items-center justify-center text-center space-y-6">
-                <div className="w-20 h-20 rounded-full glass-lvl-1 flex items-center justify-center text-black/10">
-                   <ShoppingBag size={40} strokeWidth={1} />
-                </div>
-                <div className="space-y-2">
-                   <p className="font-bold text-black/40 text-lg">Your bag is empty.</p>
-                   <p className="text-black/20 text-sm font-light">Start your creative journey in the Atelier.</p>
-                </div>
-                <button 
-                   onClick={() => setIsOpen(false)}
-                   className="px-8 py-3 rounded-full bg-black text-white text-[10px] font-bold uppercase tracking-[0.2em] shadow-xl hover:scale-105 transition-all"
-                >
-                  Return to Collection
-                </button>
+              <div className="flex-1 p-12 flex flex-col items-center justify-center text-center space-y-8">
+                 <div className="w-24 h-24 rounded-full border border-black/10 flex items-center justify-center text-black/10">
+                    <ShoppingBag size={48} strokeWidth={1.5} />
+                 </div>
+                 <div className="space-y-4">
+                    <p className="font-bold text-black/60 text-xl">The registry is empty.</p>
+                    <p className="text-black/40 text-base font-normal">Your curated artifacts will appear here.</p>
+                 </div>
+                 <button 
+                    onClick={() => setIsOpen(false)}
+                    className="px-10 py-4 rounded-[28px] bg-black text-white text-[11px] font-black uppercase tracking-[0.3em] shadow-2xl hover:scale-105 active:scale-95 transition-all"
+                 >
+                   Return to Registry
+                 </button>
               </div>
             ) : (
               <>
-                {/* 🚚 Professional Shipping Motivator */}
-                <div className="mx-8 mt-6 p-6 rounded-[32px] bg-black text-white shadow-2xl relative overflow-hidden group/shipping">
-                   <div className="absolute inset-0 bg-accent-violet/10 group-hover/shipping:bg-accent-violet/20 transition-colors pointer-events-none" />
-                   <div className="relative z-10 space-y-4">
+                {/* 🚚 Registry Transit Status */}
+                <div className="mx-10 mt-8 p-8 rounded-[40px] bg-black text-white shadow-2xl relative overflow-hidden group/shipping">
+                   <div className="absolute inset-0 bg-accent-violet/10 pointer-events-none" />
+                   <div className="relative z-10 space-y-6">
                       <div className="flex justify-between items-end">
-                         <span className="text-[9px] font-black uppercase tracking-[0.3em]">Signature Transit Protocol</span>
-                         <span className="text-[10px] font-bold opacity-60">
-                            {total >= 500 ? 'Unlocked: Complimentary Global Shipping' : `Manifest $${(500 - total).toFixed(0)} more for Heritage Delivery`}
+                         <span className="text-[11px] font-black uppercase tracking-[0.4em]">Transit Protocol</span>
+                         <span className="text-[11px] font-bold text-white/80">
+                            {total >= 500 ? 'Unlocked: Complimentary Global Delivery' : `Manifest $${(500 - total).toFixed(0)} more for Registry Delivery`}
                          </span>
                       </div>
-                      <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                      <div className="h-2 w-full bg-white/10 rounded-full overflow-hidden">
                          <motion.div 
                            initial={{ width: 0 }}
                            animate={{ width: `${Math.min(100, (total / 500) * 100)}%` }}
-                           className={`h-full ${total >= 500 ? 'bg-green-400' : 'bg-accent-violet'} shadow-[0_0_20px_rgba(139,92,246,0.5)]`}
+                           className={`h-full ${total >= 500 ? 'bg-green-400' : 'bg-accent-violet'} transition-all duration-1000`}
                          />
                       </div>
                    </div>
                 </div>
 
-                {/* ⚡ V2 Urgency (Alabaster Edition) */}
-                <div className="mx-8 mt-4 p-5 rounded-3xl glass-lvl-1 border-accent-gold/10 flex items-center gap-4 bg-accent-gold/[0.03]">
-                   <div className="w-10 h-10 rounded-2xl glass-lvl-2 flex items-center justify-center text-accent-gold animate-pulse shadow-sm">
-                      <Clock size={18} />
-                   </div>
-                   <div className="flex-1">
-                      <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-accent-gold">Immediate Dispatch</p>
-                      <p className="text-xs text-black/60">Finalize within <span className="text-black font-bold">12:44</span> for priority crafting.</p>
-                   </div>
-                </div>
-
-                <div className="flex-1 overflow-y-auto py-10 px-8 space-y-6 scrollbar-hide">
+                <div className="flex-1 overflow-y-auto py-10 px-10 space-y-8 scrollbar-hide">
                   {cart.map((item) => (
                     <motion.div 
                       key={item.id + item.customText}
@@ -106,79 +95,78 @@ export default function CartDrawer() {
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
-                      className="flex gap-4 p-5 rounded-[32px] glass-lvl-1 border-black/[0.03] relative group hover:shadow-xl transition-all duration-500"
+                      className="flex gap-6 p-6 rounded-[40px] border border-black/10 bg-white relative group transition-all duration-700 hover:shadow-2xl"
                     >
-                      <div className="relative w-24 h-24 rounded-2xl overflow-hidden bg-neutral-100 flex-shrink-0 border border-black/5">
-                         {/* Design Snapshot */}
-                         <div className="absolute inset-0 flex items-center justify-center p-2 text-center overflow-hidden">
-                            <span className={`text-[9px] font-bold leading-none ${item.customFont} opacity-60`} style={{ color: item.customColor }}>
+                      <div className="relative w-28 h-28 rounded-[28px] overflow-hidden bg-neutral-100 flex-shrink-0 border border-black/10">
+                         <div className="absolute inset-0 flex items-center justify-center p-3 text-center overflow-hidden z-10">
+                            <span className={`text-[10px] font-black leading-none ${item.customFont} text-black/80`} style={{ color: item.customColor }}>
                                {item.customText}
                             </span>
                          </div>
-                         <Image src={item.image || '/placeholder.jpg'} alt={item.name} fill className="object-cover opacity-40 group-hover:scale-110 transition-transform duration-700" />
+                         <img src={item.image || '/placeholder.jpg'} alt={item.name} className="w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-1000" />
                       </div>
                       
                       <div className="flex-1 flex flex-col justify-between py-1 text-black">
                          <div>
                             <div className="flex justify-between items-start">
-                               <h3 className="font-bold text-sm tracking-tight">{item.name}</h3>
+                               <h3 className="font-bold text-lg tracking-tighter leading-tight uppercase">{item.name}</h3>
                                <button 
                                   onClick={() => removeFromCart(item.id, item.customText)}
-                                  className="text-black/10 hover:text-red-500 transition-colors"
+                                  className="w-10 h-10 rounded-2xl hover:bg-red-50 text-black/40 hover:text-red-500 transition-all border border-transparent hover:border-red-100 flex items-center justify-center"
                                >
-                                  <Trash2 size={16} />
+                                  <Trash2 size={18} />
                                 </button>
                             </div>
-                            <p className="text-[10px] font-bold text-black/30 uppercase tracking-widest mt-1">
-                               "{item.customText}" • {item.category}
+                            <p className="text-[11px] font-black text-black/60 uppercase tracking-[0.3em] mt-2">
+                               Manifest: {item.customText} • {item.category}
                             </p>
                          </div>
 
-                         <div className="flex justify-between items-center mt-4">
-                            <div className="flex items-center gap-3 glass-lvl-1 border-black/5 rounded-full px-3 py-1.5">
+                         <div className="flex justify-between items-center mt-6">
+                            <div className="flex items-center gap-4 border border-black/20 rounded-[20px] px-4 py-2 bg-white">
                                <button 
                                   onClick={() => updateQuantity(item.id, item.customText, item.quantity - 1)}
-                                  className="p-1 hover:text-accent-violet transition-colors text-black/20 hover:text-black"
-                               >
-                                  <Minus size={12} />
+                                  className="w-6 h-6 flex items-center justify-center hover:text-black transition-colors text-black/40"
+                                >
+                                  <Minus size={14} />
                                </button>
-                               <span className="text-xs font-bold w-5 text-center text-black/60">{item.quantity}</span>
+                               <span className="text-[14px] font-black w-6 text-center text-black">{item.quantity}</span>
                                <button 
                                   onClick={() => updateQuantity(item.id, item.customText, item.quantity + 1)}
-                                  className="p-1 hover:text-accent-violet transition-colors text-black/20 hover:text-black"
-                               >
-                                  <Plus size={12} />
+                                  className="w-6 h-6 flex items-center justify-center hover:text-black transition-colors text-black/40"
+                                >
+                                  <Plus size={14} />
                                </button>
                             </div>
-                            <span className="font-bold text-sm text-black/80">${(item.price * item.quantity).toFixed(2)}</span>
+                            <span className="font-bold text-lg text-black">${(item.price * item.quantity).toFixed(0)}</span>
                          </div>
                       </div>
                     </motion.div>
                   ))}
                 </div>
 
-                <div className="p-10 space-y-8 glass-lvl-3 border-t border-black/5 shadow-2xl">
-                   {/* 🛡️ Secure Badges */}
-                   <div className="grid grid-cols-2 gap-4">
-                      <div className="flex items-center gap-2 text-[9px] font-bold uppercase tracking-widest text-black/20">
-                         <ShieldCheck size={14} className="text-accent-gold" />
+                <div className="p-12 space-y-10 border-t border-black/10 bg-white shadow-2xl relative z-10">
+                   {/* 🛡️ Secure Badges - MAX Contrast */}
+                   <div className="grid grid-cols-2 gap-6">
+                      <div className="flex items-center gap-3 text-[11px] font-black uppercase tracking-widest text-black/80">
+                         <ShieldCheck size={18} className="text-accent-gold" />
                          Certified Craft
                       </div>
-                      <div className="flex items-center gap-2 text-[9px] font-bold uppercase tracking-widest text-black/20">
-                         <Truck size={14} className="text-accent-blue" />
+                      <div className="flex items-center gap-3 text-[11px] font-black uppercase tracking-widest text-black/80">
+                         <Truck size={18} className="text-accent-blue" />
                          Insured Global
                       </div>
                    </div>
 
-                   <div className="space-y-5">
+                   <div className="space-y-6">
                       <div className="flex justify-between items-end">
-                         <span className="text-black/30 font-bold uppercase tracking-widest text-[10px]">Total Investment</span>
-                         <span className="text-4xl font-bold font-outfit text-black">${total.toFixed(2)}</span>
+                         <span className="text-black/80 font-black uppercase tracking-widest text-[11px]">Total Investment</span>
+                         <span className="text-5xl font-bold font-outfit text-black tracking-tighter">${total.toFixed(0)}</span>
                       </div>
                       
-                      <button className="w-full py-6 rounded-[32px] bg-black text-white font-bold text-lg flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-[0.98] transition-all duration-500 shadow-2xl group">
-                         Initiate Handcrafting
-                         <ArrowRight size={22} className="group-hover:translate-x-1.5 transition-transform" />
+                      <button className="w-full py-7 rounded-[32px] bg-black text-white font-black text-[13px] uppercase tracking-[0.4em] flex items-center justify-center gap-6 hover:bg-accent-violet transition-all duration-700 shadow-2xl active:scale-95 group">
+                         Initiate Acquisition
+                         <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform" />
                       </button>
                    </div>
                 </div>
