@@ -68,7 +68,7 @@ export default function ProductDetailPage() {
             <div className="grid grid-cols-4 gap-4">
               {[1, 2, 3, 4].map((i) => (
                 <div key={i} className="aspect-square rounded-3xl glass-lvl-1 border-black/5 hover:glass-lvl-3 transition-all cursor-pointer overflow-hidden border-2 border-transparent hover:border-accent-violet/20">
-                   <div className="w-full h-full bg-black/[0.02] />
+                   <div className="w-full h-full bg-black/[0.02]" />
                 </div>
               ))}
             </div>
@@ -82,26 +82,26 @@ export default function ProductDetailPage() {
           >
             <div className="space-y-4">
                <div className="flex items-center gap-3">
-                  <span className="px-3 py-1 rounded-full glass-lvl-1 border-black/5 text-[9px] font-bold uppercase tracking-[0.3em] text-black/40
+                  <span className="px-3 py-1 rounded-full glass-lvl-1 border-black/5 text-[9px] font-bold uppercase tracking-[0.3em] text-black/40">Artifact</span>
                   <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-accent-gold">Serial #PRL-97X</span>
                </div>
                <h1 className="text-6xl md:text-8xl font-bold font-outfit tracking-tighter leading-none">{product.name}</h1>
-               <p className="text-4xl font-bold font-outfit text-black/20
+               <p className="text-4xl font-bold font-outfit text-black/20">${product.price.toFixed(2)}</p>
             </div>
 
             <p className="text-xl font-light text-black/60 leading-relaxed max-w-xl">
                {product.description}
             </p>
 
-            <div className="h-px bg-black/5 />
+            <div className="h-px bg-black/5" />
 
             {/* Customization Preview Teaser */}
             <div className="space-y-6">
-               <h3 className="text-[10px] font-bold uppercase tracking-[0.5em] text-black/20 Metadata</h3>
+               <h3 className="text-[10px] font-bold uppercase tracking-[0.5em] text-black/20">Artisan Metadata</h3>
                <div className="grid grid-cols-2 gap-8">
                   {product.specs?.map((spec) => (
                     <div key={spec.label} className="space-y-1">
-                       <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-black/40
+                       <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-black/40">{spec.label}</p>
                        <p className="text-lg font-bold font-outfit">{spec.value}</p>
                     </div>
                   ))}
@@ -137,7 +137,7 @@ export default function ProductDetailPage() {
             </div>
 
             {/* Trust Badges */}
-            <div className="grid grid-cols-3 gap-4 pt-12 border-t border-black/5
+            <div className="grid grid-cols-3 gap-4 pt-12 border-t border-black/5">
                 {[
                   { icon: ShieldCheck, label: "LIFETIME" },
                   { icon: Truck, label: "GLOBAL" },

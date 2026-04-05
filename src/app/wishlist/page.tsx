@@ -103,9 +103,9 @@ export default function WishlistPage() {
               <motion.div 
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="flex flex-col items-center justify-center py-40 space-y-8 glass-lvl-2 rounded-[64px] border border-black/5
+                className="flex flex-col items-center justify-center py-40 space-y-8 glass-lvl-2 rounded-[64px] border border-black/5"
               >
-                 <div className="w-24 h-24 rounded-full glass-lvl-1 flex items-center justify-center text-black/10
+                 <div className="w-24 h-24 rounded-full glass-lvl-1 flex items-center justify-center text-black/10">
                     <Heart size={48} strokeWidth={1} />
                  </div>
                  <div className="space-y-4 text-center">

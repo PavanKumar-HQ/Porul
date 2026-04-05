@@ -47,12 +47,12 @@ export default function CustomizePage() {
              <div key={s} className="flex items-center gap-4">
                 <div 
                   className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs transition-all duration-500 border ${
-                    step >= s ? 'bg-black text-white border-transparent' : 'glass-lvl-1 text-black/20 border-black/5
+                    step >= s ? 'bg-black text-white border-transparent' : 'glass-lvl-1 text-black/20 border-black/5'
                   }`}
                 >
                    {step > s ? <Check size={14} /> : s}
                 </div>
-                {s < 3 && <div className={`w-12 h-px ${step > s ? 'bg-black : 'bg-black/5 transition-colors duration-500`} />}
+                {s < 3 && <div className={`w-12 h-px ${step > s ? 'bg-black' : 'bg-black/5'} transition-colors duration-500`} />}
              </div>
           ))}
         </div>
@@ -121,7 +121,7 @@ export default function CustomizePage() {
                   >
                      <div className="space-y-4">
                         <h2 className="text-4xl font-bold font-outfit tracking-tighter">Choose Your <span className="text-black/20 italic">Vessel</span></h2>
-                        <p className="text-black/40 the artisanal base artifact for your manifestation.</p>
+                        <p className="text-black/40">Select the artisanal base artifact for your manifestation.</p>
                      </div>
                      <div className="grid grid-cols-2 gap-4">
                         {products.map((p) => (
@@ -224,7 +224,7 @@ export default function CustomizePage() {
                   >
                      <div className="space-y-8">
                         <h2 className="text-4xl font-bold font-outfit tracking-tighter">Final <span className="text-black/20 italic">Validation</span></h2>
-                        <p className="text-black/40 your signature artifact before fabrication initiation.</p>
+                        <p className="text-black/40">Review your signature artifact before fabrication initiation.</p>
                      </div>
 
                      <div className="glass-lvl-1 rounded-[40px] border-black/5 p-10 space-y-6">
