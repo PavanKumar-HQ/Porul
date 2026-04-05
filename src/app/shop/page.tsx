@@ -6,11 +6,15 @@ import { products } from "@/data/products";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
-import { Search, SlidersHorizontal, ArrowRight, Sparkles, Filter, ChevronDown, Wand2 } from "lucide-react";
+import { Search, SlidersHorizontal, ArrowRight, Sparkles, Filter, ChevronDown, Wand2, Heart, ShoppingBag, Eye, Star } from "lucide-react";
+import { useWishlist } from "@/context/WishlistContext";
+import { useCart } from "@/context/CartContext";
 
 export default function ShopPage() {
   const [filter, setFilter] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
+  const { addToCart } = useCart();
   const categories = ["All", ...new Set(products.map(p => p.category))];
 
   const filteredProducts = products.filter(p => {
@@ -19,6 +23,22 @@ export default function ShopPage() {
                          p.description.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesFilter && matchesSearch;
   });
+
+  const toggleWishlist = (product: any, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (isInWishlist(product.id)) {
+      removeFromWishlist(product.id);
+    } else {
+      addToWishlist(product);
+    }
+  };
+
+  const handleQuickAdd = (product: any, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addToCart(product, "", "Inter", "#000000");
+  };
 
   return (
     <div className="flex flex-col min-h-screen bg-[#FDFDFD] text-black transition-colors duration-700">
@@ -82,7 +102,7 @@ export default function ShopPage() {
         <AnimatePresence mode="popLayout">
           <motion.div 
             layout
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12 text-black"
           >
             {filteredProducts.map((product, index) => (
               <motion.div
@@ -94,11 +114,12 @@ export default function ShopPage() {
                 transition={{ duration: 0.5 }}
               >
                 <Link href={`/shop/${product.id}`} className="group block h-full">
-                  <div className="relative aspect-[1/1.2] bg-white rounded-[40px] overflow-hidden border border-black/[0.04] group-hover:border-accent-violet/20 transition-all duration-700 hover:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08)] flex flex-col h-full">
+                  <div className="relative aspect-[1/1.2] bg-white rounded-[40px] overflow-hidden border border-black/[0.04] group-hover:border-accent-violet/20 transition-all duration-700 hover:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08)] flex flex-col h-full group">
                     <div className="absolute inset-0 glass-lvl-1 opacity-10 pointer-events-none" />
+                    
                     {/* Image Area */}
                     <div className="relative flex-1 p-6">
-                      <div className="absolute inset-0 overflow-hidden rounded-[40px] m-4">
+                      <div className="absolute inset-x-4 top-4 bottom-4 overflow-hidden rounded-[32px]">
                          <img 
                            src={product.image} 
                            alt={product.name}
@@ -107,30 +128,68 @@ export default function ShopPage() {
                          <div className="absolute inset-0 bg-black/5 mix-blend-multiply" />
                          <div className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-20`} />
                          
-                         {/* Floating Letter Overlay */}
+                         {/* Product Letter BG Overlay */}
                          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                             <span className="text-white/10 font-black text-[120px] uppercase tracking-tighter select-none rotate-12">{product.name.charAt(0)}</span>
+                             <span className="text-white/10 font-black text-[100px] uppercase tracking-tighter select-none rotate-12">{product.name.charAt(0)}</span>
+                         </div>
+
+                         {/* Quick Add Overlay */}
+                         <div className="absolute inset-x-0 bottom-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-30">
+                            <button 
+                              onClick={(e) => handleQuickAdd(product, e)}
+                              className="w-full py-4 rounded-2xl bg-black text-white font-bold text-[10px] uppercase tracking-widest flex items-center justify-center gap-3 shadow-2xl hover:scale-[1.02] active:scale-95 transition-all"
+                            >
+                               <ShoppingBag size={14} />
+                               Quick Acquisition
+                            </button>
                          </div>
                       </div>
 
-                      {/* Interaction Overlay */}
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-20">
-                          <div className="w-16 h-16 rounded-full glass-lvl-3 flex items-center justify-center text-accent-violet shadow-2xl">
-                             <Wand2 size={24} />
-                          </div>
-                       </div>
+                      {/* Header Actions */}
+                      <div className="absolute top-8 left-8 right-8 flex justify-between items-start z-20">
+                         {index % 3 === 0 && (
+                            <span className="px-3 py-1 bg-black text-white text-[8px] font-black uppercase tracking-widest rounded-full shadow-xl">
+                               New Arrival
+                            </span>
+                         )}
+                         <div className="flex flex-col gap-2 ml-auto">
+                            <button 
+                              onClick={(e) => toggleWishlist(product, e)}
+                              className={`w-10 h-10 rounded-full glass-lvl-3 flex items-center justify-center transition-all shadow-xl hover:scale-110 active:scale-90 ${isInWishlist(product.id) ? 'text-red-500 bg-white' : 'text-black/40 hover:text-red-500 bg-white/40'}`}
+                            >
+                               <Heart size={16} fill={isInWishlist(product.id) ? "currentColor" : "none"} strokeWidth={2.5} />
+                            </button>
+                            <button className="w-10 h-10 rounded-full bg-white/40 glass-lvl-3 flex items-center justify-center text-black/40 hover:text-black opacity-0 group-hover:opacity-100 transition-all hover:scale-110 shadow-xl">
+                               <Eye size={16} strokeWidth={2.5} />
+                            </button>
+                         </div>
+                      </div>
                     </div>
 
                     {/* Metadata Area */}
-                    <div className="p-10 pt-2 flex flex-col gap-3 min-h-[140px]">
-                      <div className="flex justify-between items-center">
-                        <span className="text-[10px] font-bold text-black/20 uppercase tracking-[0.4em]">{product.category}</span>
-                        <span className="text-xl font-bold font-outfit text-black/60">${product.price.toFixed(0)}</span>
+                    <div className="p-10 pt-4 flex flex-col gap-3">
+                      <div className="flex justify-between items-end">
+                        <div className="space-y-2">
+                           <p className="text-[10px] font-bold text-black/20 uppercase tracking-[0.4em] font-inter">{product.category}</p>
+                           <h3 className="text-2xl font-bold text-black font-outfit tracking-tight leading-none group-hover:text-accent-violet transition-colors">{product.name}</h3>
+                        </div>
+                        <div className="text-right">
+                           {/* Rating Mockup */}
+                           <div className="flex items-center gap-1 mb-2">
+                              <Star size={10} className="fill-accent-gold text-accent-gold" />
+                              <span className="text-[9px] font-bold text-black/20">4.9</span>
+                           </div>
+                           <span className="text-xl font-bold font-outfit text-black/80">${product.price.toFixed(0)}</span>
+                        </div>
                       </div>
-                      <h3 className="text-2xl font-bold text-black font-outfit tracking-tight leading-none group-hover:text-accent-violet transition-colors">{product.name}</h3>
-                      <div className="pt-4 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0 duration-500 mt-auto">
-                         <span className="text-[9px] font-black uppercase tracking-widest text-accent-blue">Manifest Creation</span>
-                         <ArrowRight size={14} className="text-accent-blue" />
+                      
+                      <div className="h-px bg-black/5 mt-4 group-hover:bg-accent-violet/20 transition-colors" />
+                      
+                      <div className="pt-2 flex items-center justify-between">
+                         <span className="text-[9px] font-black uppercase tracking-widest text-black/30 group-hover:text-accent-blue transition-colors">Manifest Protocol</span>
+                         <div className="w-8 h-8 rounded-full border border-black/5 flex items-center justify-center text-black/10 group-hover:text-accent-blue group-hover:border-accent-blue/30 transition-all">
+                            <ArrowRight size={14} />
+                         </div>
                       </div>
                     </div>
                   </div>

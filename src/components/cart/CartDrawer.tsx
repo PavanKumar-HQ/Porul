@@ -67,8 +67,28 @@ export default function CartDrawer() {
               </div>
             ) : (
               <>
+                {/* 🚚 Professional Shipping Motivator */}
+                <div className="mx-8 mt-6 p-6 rounded-[32px] bg-black text-white shadow-2xl relative overflow-hidden group/shipping">
+                   <div className="absolute inset-0 bg-accent-violet/10 group-hover/shipping:bg-accent-violet/20 transition-colors pointer-events-none" />
+                   <div className="relative z-10 space-y-4">
+                      <div className="flex justify-between items-end">
+                         <span className="text-[9px] font-black uppercase tracking-[0.3em]">Signature Transit Protocol</span>
+                         <span className="text-[10px] font-bold opacity-60">
+                            {total >= 500 ? 'Unlocked: Complimentary Global Shipping' : `Manifest $${(500 - total).toFixed(0)} more for Heritage Delivery`}
+                         </span>
+                      </div>
+                      <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                         <motion.div 
+                           initial={{ width: 0 }}
+                           animate={{ width: `${Math.min(100, (total / 500) * 100)}%` }}
+                           className={`h-full ${total >= 500 ? 'bg-green-400' : 'bg-accent-violet'} shadow-[0_0_20px_rgba(139,92,246,0.5)]`}
+                         />
+                      </div>
+                   </div>
+                </div>
+
                 {/* ⚡ V2 Urgency (Alabaster Edition) */}
-                <div className="mx-8 mt-6 p-5 rounded-3xl glass-lvl-1 border-accent-gold/20 flex items-center gap-4 bg-accent-gold/5 shadow-sm">
+                <div className="mx-8 mt-4 p-5 rounded-3xl glass-lvl-1 border-accent-gold/10 flex items-center gap-4 bg-accent-gold/[0.03]">
                    <div className="w-10 h-10 rounded-2xl glass-lvl-2 flex items-center justify-center text-accent-gold animate-pulse shadow-sm">
                       <Clock size={18} />
                    </div>
