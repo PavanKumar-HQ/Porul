@@ -30,10 +30,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable} antialiased`}>
-      <body className="min-h-screen bg-[#FDFDFD] text-[#121212] selection:bg-accent-blue/10 overflow-x-hidden cursor-none">
+      <body className="min-h-screen bg-[#FDFDFD] text-[#121212] selection:bg-accent-blue/10 overflow-x-hidden">
         <CartProvider>
           <WishlistProvider>
-            {/* Custom Interactive Elements */}
+            {/* Custom Interactive Elements (Component handles cursor hiding internally) */}
             <CustomCursor />
             <ScrollProgress />
 
