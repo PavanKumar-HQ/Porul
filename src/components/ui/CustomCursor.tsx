@@ -1,9 +1,10 @@
 "use client";
 
-import { motion, useSpring, useMotionValue } from "framer-motion";
+import { motion, useSpring, useMotionValue, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export default function CustomCursor() {
+  const [mounted, setMounted] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isPointer, setIsPointer] = useState(false);
   
@@ -15,6 +16,8 @@ export default function CustomCursor() {
   const springY = useSpring(cursorY, springConfig);
 
   useEffect(() => {
+    setMounted(true);
+    
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
@@ -43,11 +46,12 @@ export default function CustomCursor() {
     };
   }, [cursorX, cursorY]);
 
-  if (typeof window === "undefined") return null;
+  // Safety: Don't render until client-side to prevent hydration mismatch
+  if (!mounted) return null;
 
   return (
     <>
-      {/* Global Grain Texture Overlay */}
+      {/* Global Grain Texture Overlay (Client-Side Only) */}
       <div className="fixed inset-0 pointer-events-none z-[9999] opacity-[0.035] mix-blend-overlay select-none overflow-hidden">
          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat" />
       </div>
@@ -97,5 +101,3 @@ export default function CustomCursor() {
     </>
   );
 }
-
-import { AnimatePresence } from "framer-motion";

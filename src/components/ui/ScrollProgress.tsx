@@ -1,14 +1,23 @@
 "use client";
 
 import { motion, useScroll, useSpring } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function ScrollProgress() {
+  const [mounted, setMounted] = useState(false);
   const { scrollYProgress } = useScroll();
+  
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001
   });
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <div className="fixed left-0 lg:left-8 top-1/2 -translate-y-1/2 flex h-48 w-1 lg:w-1.5 flex-col items-center gap-4 z-[100] group">
